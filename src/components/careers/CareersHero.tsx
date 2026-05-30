@@ -75,7 +75,7 @@ export default function CareersHero({
     transition: {
       duration: 10 + i * 0.8,
       repeat: Infinity,
-      ease: "easeInOut",
+      ease: "easeInOut" as const,
       delay: FLOATING_ICONS[i].delay,
     },
   });
