@@ -1,0 +1,70 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model ContactSubmission {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  whatsapp  String?
+  service   String
+  message   String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("contact_submissions")
+}
+
+model JobOpening {
+  id             String @id @default(cuid())
+  jobId          String @unique // LK-2026-008
+  jobTitle       String
+  experience     String // e.g. 3-5 Years
+  location       String
+  employmentType String
+  jobDescription String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model JobApplication {
+  id              String   @id @default(cuid())
+  fullName        String
+  email           String   @unique
+  phoneNumber     String
+  skillset        String
+  location        String
+  experience      String
+  resume          String
+  appliedPosition String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model TalentCommunity {
+  id              String   @id @default(cuid())
+  fullName        String
+  email           String   @unique
+  phoneNumber     String
+  location        String
+  qualification   String
+  roleApplyingFor String?
+  experienceLevel String
+  skillset        String
+  portfolioUrl    String?
+  resume          String
+  shortMessage    String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
