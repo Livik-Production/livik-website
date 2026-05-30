@@ -242,7 +242,9 @@ const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [hoveredNav, setHoveredNav] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDropdownClicked, setIsDropdownClicked] = useState(false);
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const navRef = useRef<HTMLElement>(null);
 
   const handleMouseEnter = (id: string) => {
     if (closeTimeoutRef.current) {
@@ -252,17 +254,27 @@ const Navbar = () => {
     setHoveredNav(id);
     const item = navItems.find((i) => i.id === id);
     if (item?.hasDropdown) {
+      if (activeDropdown !== id) {
+        setIsDropdownClicked(false);
+      }
       setActiveDropdown(id);
     } else {
       setActiveDropdown(null);
+      setIsDropdownClicked(false);
     }
   };
 
   const handleMouseLeave = () => {
+    if (isDropdownClicked) return;
+
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+    }
+
     closeTimeoutRef.current = setTimeout(() => {
       setActiveDropdown(null);
       setHoveredNav(null);
-    }, 200); // 200ms delay to allow moving mouse to dropdown
+    }, 450); // 450ms delay for smooth transition
   };
 
   const handleCloseImmediately = () => {
@@ -272,6 +284,23 @@ const Navbar = () => {
     }
     setActiveDropdown(null);
     setHoveredNav(null);
+    setIsDropdownClicked(false);
+  };
+
+  const handleHeaderClick = (id: string) => {
+    if (activeDropdown === id) {
+      if (isDropdownClicked) {
+        setActiveDropdown(null);
+        setHoveredNav(null);
+        setIsDropdownClicked(false);
+      } else {
+        setIsDropdownClicked(true);
+      }
+    } else {
+      setActiveDropdown(id);
+      setHoveredNav(id);
+      setIsDropdownClicked(true);
+    }
   };
 
   useEffect(() => {
@@ -279,6 +308,27 @@ const Navbar = () => {
       if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
     };
   }, []);
+
+  // Handle click outside desktop dropdown
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (
+        !isMobileMenuOpen &&
+        navRef.current &&
+        !navRef.current.contains(event.target as Node)
+      ) {
+        setActiveDropdown(null);
+        setHoveredNav(null);
+        setIsDropdownClicked(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, [isMobileMenuOpen]);
 
   // Prevent scroll when mobile menu is open
   useEffect(() => {
@@ -333,6 +383,7 @@ const Navbar = () => {
 
   return (
     <nav
+      ref={navRef}
       className="sticky top-0 z-50 border-b border-gray-100 bg-white px-4 md:px-10 py-1.5"
       onMouseLeave={handleMouseLeave}
     >
@@ -467,11 +518,7 @@ const Navbar = () => {
                             ? "text-[#003366]"
                             : "text-gray-800"
                         }`}
-                        onClick={() => {
-                          setActiveDropdown(
-                            activeDropdown === item.id ? null : item.id,
-                          );
-                        }}
+                        onClick={() => handleHeaderClick(item.id)}
                       >
                         {textFlipContent}
                         <ChevronDown
@@ -564,7 +611,10 @@ const Navbar = () => {
                         <Link
                           key={item.name}
                           href={item.href}
-                          onClick={() => setActiveDropdown(null)}
+                          onClick={() => {
+                            setActiveDropdown(null);
+                            setIsDropdownClicked(false);
+                          }}
                           className="group flex items-start gap-4 cursor-pointer"
                         >
                           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#004475] text-white transition-all duration-300">
@@ -617,7 +667,10 @@ const Navbar = () => {
                   >
                     <Link
                       href={item.href}
-                      onClick={() => setActiveDropdown(null)}
+                      onClick={() => {
+                        setActiveDropdown(null);
+                        setIsDropdownClicked(false);
+                      }}
                       className="group flex items-start gap-4 cursor-pointer"
                     >
                       <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#004475] text-white transition-all duration-300">
