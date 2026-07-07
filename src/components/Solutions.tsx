@@ -30,7 +30,7 @@ const solutions = [
       "Modernize learning with scalable platforms, student management systems and interactive digital classrooms.",
     icon: GraduationCap,
     color: "bg-violet-50 text-violet-600",
-    href: "/solutions/education",
+    href: "/industries/education",
   },
   {
     title: "Fintech",
@@ -38,7 +38,7 @@ const solutions = [
       "Build the future of finance with secure payment gateways, digital banking and high-performance trading platforms.",
     icon: Wallet,
     color: "bg-emerald-50 text-emerald-600",
-    href: "/solutions/fintech",
+    href: "/industries/fintech",
   },
   {
     title: "FMCG",
@@ -46,7 +46,7 @@ const solutions = [
       "Digital transformation for Fast-Moving Consumer Goods—optimizing distribution, inventory and consumer engagement.",
     icon: Factory,
     color: "bg-indigo-50 text-indigo-600",
-    href: "/solutions/fmcg",
+    href: "/industries/fmcg",
   },
   {
     title: "Healthcare",
@@ -54,7 +54,7 @@ const solutions = [
       "Enhance patient outcomes and operational efficiency with secure, compliant healthcare technology systems.",
     icon: HeartPulse,
     color: "bg-red-50 text-red-600",
-    href: "/solutions/healthcare",
+    href: "/industries/healthcare",
   },
   {
     title: "Logistics & Supply chain",
@@ -62,7 +62,7 @@ const solutions = [
       "Optimize your supply chain and delivery networks with high-precision tracking and automation tools.",
     icon: Truck,
     color: "bg-blue-50 text-blue-600",
-    href: "/solutions/logistics",
+    href: "/industries/logistics",
   },
   {
     title: "Real estate",
@@ -70,7 +70,7 @@ const solutions = [
       "Transform property management and sales with immersive digital platforms and automated workflows.",
     icon: Home,
     color: "bg-amber-50 text-amber-600",
-    href: "/solutions/real-estate",
+    href: "/industries/real-estate",
   },
   {
     title: "Retail & E-Commerce",
@@ -78,7 +78,7 @@ const solutions = [
       "Modernize your retail operations with omnichannel commerce platforms and direct-to-consumer digital experiences.",
     icon: Store,
     color: "bg-orange-50 text-orange-600",
-    href: "/solutions/retail",
+    href: "/industries/retail",
   },
   {
     title: "Travels & Hospitality",
@@ -86,7 +86,7 @@ const solutions = [
       "Streamline bookings and guest experiences with high-performance travel management and hospitality systems.",
     icon: Plane,
     color: "bg-cyan-50 text-cyan-600",
-    href: "/solutions/travel",
+    href: "/industries/travel",
   },
 ];
 

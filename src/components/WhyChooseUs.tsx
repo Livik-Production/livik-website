@@ -120,17 +120,20 @@ export default function WhyChooseUs() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-16 items-center">
+        <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-8 lg:gap-16 items-center">
           {/* Left side: Accordion */}
-          <div ref={whySectionRef} className="space-y-6">
+          <div
+            ref={whySectionRef}
+            className="space-y-1 text-center lg:text-left"
+          >
             {activeServiceModel === "augmentation" ? (
-              <div className="py-12">
+              <div className="py-4 lg:py-12">
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   className="space-y-2"
                 >
-                  <h3 className="text-4xl md:text-5xl font-black leading-tight text-white">
+                  <h3 className="text-4xl md:text-5xl font-black leading-tight text-white mt-6">
                     Our software
                     <br />
                     developers <span className="text-[#33a8d9]">in your</span>
@@ -140,13 +143,13 @@ export default function WhyChooseUs() {
                 </motion.div>
               </div>
             ) : activeServiceModel === "teams" ? (
-              <div className="py-12">
+              <div className="py-4 lg:py-12">
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   className="space-y-2"
                 >
-                  <h3 className="text-4xl md:text-5xl font-black leading-tight text-white">
+                  <h3 className="text-4xl md:text-5xl font-black leading-tight text-white mt-6">
                     Your Extended <br />
                     Technology <span className="text-[#33a8d9]">Team</span>
                     <br />
@@ -155,13 +158,13 @@ export default function WhyChooseUs() {
                 </motion.div>
               </div>
             ) : activeServiceModel === "outsourcing" ? (
-              <div className="py-12">
+              <div className="py-4 lg:py-12">
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   className="space-y-2"
                 >
-                  <h3 className="text-4xl md:text-5xl font-black leading-tight text-white">
+                  <h3 className="text-4xl md:text-5xl font-black leading-tight text-white mt-6">
                     Our PM and Engineering <br />
                     Teams <span className="text-[#33a8d9]">Delivering </span>
                     <br />
@@ -203,7 +206,7 @@ export default function WhyChooseUs() {
           </div>
 
           {/* Right side: Autonomous Team Network Animation */}
-          <div className="relative flex items-center justify-center overflow-hidden min-h-[400px]">
+          <div className="relative flex items-center justify-center overflow-hidden min-h-[300px] lg:min-h-[400px]">
             {activeServiceModel === "outsourcing" && (
               <SoftwareOutsourcingAnimation />
             )}
@@ -217,7 +220,7 @@ export default function WhyChooseUs() {
         </div>
 
         {/* Service Model Tabs */}
-        <div className="mt-16 max-w-4xl mx-auto">
+        <div className="mt-8 lg:mt-16 max-w-4xl mx-auto">
           <div className="bg-[#e2e8f0]/90 p-1.5 rounded-2xl flex flex-col md:flex-row gap-1">
             {serviceModels.map((model) => (
               <button

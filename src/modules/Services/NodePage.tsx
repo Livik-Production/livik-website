@@ -314,7 +314,7 @@ export default function NodePage() {
             <h2 className="text-center heading-section">
               Build Backends That Don’t Slow You Down
             </h2>
-            <p className="text-lead text-muted-foreground mt-8">
+            <p className="text-lead text-muted-foreground mt-8 text-justify">
               Your backend directly impacts speed, user experience and system
               reliability. We use Node.js to build event-driven, non-blocking
               applications that process requests faster and scale effortlessly.
@@ -328,7 +328,7 @@ export default function NodePage() {
       </section>
 
       {/* Capabilities */}
-      <section className="pt-10 md:pt-14 pb-16 md:pb-24 relative overflow-hidden bg-[#004475] text-white">
+      <section className="pt-10 md:pt-14 pb-16 md:pb-24 px-4 md:px-8 relative overflow-hidden bg-[#004475] text-white">
         {/* Subtle grid pattern for depth */}
         <div
           className="absolute inset-0 opacity-10"
@@ -433,7 +433,7 @@ export default function NodePage() {
             <h2 className="text-center heading-section">
               Ready to Build a High-Performance Backend with Node.js?
             </h2>
-            <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto mt-4">
+            <p className="text-xl text-justify opacity-90 mb-8 max-w-2xl mx-auto mt-4">
               If your system needs to handle real-time interactions or high
               traffic, Node.js is the right choice—execution is what makes it
               successful. Let’s build it right.

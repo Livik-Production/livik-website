@@ -34,9 +34,7 @@ export default function CoreServiceHero({
   if (!data) return null;
 
   return (
-    <section
-      className="relative isolate overflow-hidden bg-[#030b1a] text-white min-h-screen flex items-center justify-center pt-20 pb-12"
-    >
+    <section className="relative isolate overflow-hidden bg-[#030b1a] text-white flex items-center justify-center pt-32 pb-16 md:pt-36 md:pb-20">
       {/* AMBIENT — corner glows + faint grid */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div

@@ -318,7 +318,7 @@ export default function PHPPage() {
             <h2 className="text-center heading-section">
               Build Practical Applications That Deliver Real Results
             </h2>
-            <p className="text-lead text-muted-foreground mt-8">
+            <p className="text-lead text-muted-foreground mt-8 text-justify">
               PHP remains one of the most efficient technologies for building
               business-critical web applications. We use modern frameworks like
               Laravel and Symfony to create applications that are structured,
@@ -332,7 +332,7 @@ export default function PHPPage() {
       </section>
 
       {/* Capabilities */}
-      <section className="pt-10 md:pt-14 pb-16 md:pb-24 relative overflow-hidden bg-[#004475] text-white">
+      <section className="pt-10 md:pt-14 pb-16 md:pb-24 px-4 md:px-8 relative overflow-hidden bg-[#004475] text-white">
         {/* Subtle grid pattern for depth */}
         <div
           className="absolute inset-0 opacity-10"
@@ -437,7 +437,7 @@ export default function PHPPage() {
             <h2 className="text-center heading-section">
               Ready to Build with PHP?
             </h2>
-            <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto mt-4">
+            <p className="text-xl text-justify opacity-90 mb-8 max-w-2xl mx-auto mt-4">
               If you need a reliable, scalable and cost-efficient solution, PHP
               is still one of the smartest choices—when built right. Let’s build
               it right.

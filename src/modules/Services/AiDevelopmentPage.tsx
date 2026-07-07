@@ -242,13 +242,13 @@ export default function AiDevelopmentPage() {
       </section> */}
 
       {/* Real Impact Section */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 px-4 md:px-8">
         <div className="container-custom max-w-4xl mx-auto text-center">
           <ScrollReveal>
             <h2 className="text-3xl md:text-5xl font-bold text-[#004475] mb-8">
               Move Beyond AI Experiments to Real Impact
             </h2>
-            <p className="text-xl text-gray-600 mb-12">
+            <p className="text-xl text-gray-600 mb-12 text-justify">
               Most AI projects fail because they never go beyond prototypes. We
               help you design and build AI systems that integrate into your
               workflows, ensuring they deliver measurable business outcomes—not
@@ -293,7 +293,7 @@ export default function AiDevelopmentPage() {
       </section>
 
       {/* AI Solutions Section */}
-      <section className="py-14 md:py-14 relative overflow-hidden bg-[#004475] text-white">
+      <section className="py-14 md:py-14 px-4 md:px-8 relative overflow-hidden bg-[#004475] text-white">
         {/* Subtle grid pattern for depth */}
         <div
           className="absolute inset-0 opacity-10"
@@ -348,7 +348,7 @@ export default function AiDevelopmentPage() {
       </section>
 
       {/* Advanced Capabilities */}
-      <section className="py-14 md:py-16">
+      <section className="py-14 md:py-16 px-4 md:px-8">
         <div className="container-custom">
           <ScrollReveal className="text-center mb-10 md:mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#004475]">
@@ -376,7 +376,7 @@ export default function AiDevelopmentPage() {
       </section>
 
       {/* What You Gain */}
-      <section className="py-14 md:py-16 bg-slate-200">
+      <section className="py-14 md:py-16 px-4 md:px-8 bg-slate-200">
         <div className="container-custom">
           <ScrollReveal className="text-center mb-10 md:mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#004475]">
@@ -447,7 +447,7 @@ export default function AiDevelopmentPage() {
       </section>
 
       {/* Who This Is For & How We Build */}
-      <section className="py-14 md:py-16 bg-slate-200/50">
+      <section className="py-14 md:py-16 px-4 md:px-8 bg-slate-200/50">
         <div className="container-custom grid lg:grid-cols-2 gap-20">
           <div>
             <ScrollReveal>
@@ -493,13 +493,13 @@ export default function AiDevelopmentPage() {
       </section>
 
       {/* CTA Footer */}
-      <section className="py-10 md:py-12 gradient-hero text-white">
+      <section className="py-10 md:py-12 px-4 md:px-8 gradient-hero text-white">
         <div className="container-custom text-center">
           <ScrollReveal>
             <h2 className="text-3xl md:text-5xl font-bold leading-tight">
               Ready to Build AI That Actually Works?
             </h2>
-            <p className="text-xl opacity-90 mb-10 max-w-2xl mx-auto mt-6 leading-relaxed">
+            <p className="text-xl text-justify opacity-90 mb-10 max-w-2xl mx-auto mt-6 leading-relaxed">
               If your AI initiative is stuck in experimentation or not
               delivering results, it’s time to fix it.
               <br />

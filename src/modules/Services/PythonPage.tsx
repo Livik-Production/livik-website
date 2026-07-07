@@ -327,7 +327,7 @@ export default function PythonPage() {
             <h2 className="text-center heading-section">
               Build Systems That Turn Data Into Decisions
             </h2>
-            <p className="text-lead text-muted-foreground mt-8">
+            <p className="text-lead text-muted-foreground mt-8 text-justify">
               Python isn’t just flexible—it’s powerful when used with the right
               architecture. We design and develop Python applications that
               handle data efficiently, automate operations and scale with
@@ -341,7 +341,7 @@ export default function PythonPage() {
       </section>
 
       {/* Capabilities */}
-      <section className="pt-10 md:pt-14 pb-16 md:pb-24 relative overflow-hidden bg-[#004475] text-white">
+      <section className="pt-10 md:pt-14 pb-16 md:pb-24 px-4 md:px-8 relative overflow-hidden bg-[#004475] text-white">
         {/* Subtle grid pattern for depth */}
         <div
           className="absolute inset-0 opacity-10"
@@ -446,7 +446,7 @@ export default function PythonPage() {
             <h2 className="text-center heading-section">
               Ready to Build with Python?
             </h2>
-            <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto mt-4">
+            <p className="text-xl text-justify opacity-90 mb-8 max-w-2xl mx-auto mt-4">
               If your business depends on data, automation, or intelligent
               systems, Python is the right foundation—execution makes the
               difference. Let’s build it right.

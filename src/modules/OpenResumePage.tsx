@@ -190,8 +190,10 @@ export default function OpenResumePage() {
                   <span className="font-semibold text-slate-800">
                     {formData.fullName}
                   </span>
-                  . We have received your open application and our talent
-                  acquisition team will review your profile shortly.
+                  .We have received your open application, and our Talent
+                  Acquisition team will review your profile shortly. If your
+                  profile is shortlisted and matches our expected qualifications
+                  and skill requirements, our HR team will contact you soon.
                 </p>
 
                 {/* LinkedIn follow inside card */}

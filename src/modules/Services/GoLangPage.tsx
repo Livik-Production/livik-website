@@ -502,7 +502,7 @@ export default function GoLangPage() {
       </section>
 
       {/* Deliverables - Dark */}
-      <section className="pt-10 md:pt-14 pb-16 md:pb-24 relative overflow-hidden bg-[#004475] text-white">
+      <section className="pt-10 md:pt-14 pb-16 md:pb-24 px-4 md:px-8 relative overflow-hidden bg-[#004475] text-white">
         {/* Subtle grid pattern for depth */}
         <div
           className="absolute inset-0 opacity-10"
@@ -707,7 +707,7 @@ export default function GoLangPage() {
             <h2 className="text-center heading-section">
               Ready to Fix Your Backend Performance Issues?
             </h2>
-            <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto mt-4">
+            <p className="text-xl text-justify opacity-90 mb-8 max-w-2xl mx-auto mt-4">
               If your backend is slowing down your growth, it’s time to upgrade
               your architecture. Let’s build a system that performs when it
               matters.

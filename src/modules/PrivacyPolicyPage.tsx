@@ -127,10 +127,8 @@ export default function PrivacyPolicyPage() {
               <div className="mb-10 text-justify">
                 <p className="text-base text-gray-700 leading-relaxed font-medium">
                   At{" "}
-                  <span className="text-[#004475] font-bold">
-                    Livik Software Solutions
-                  </span>
-                  , we believe in transparency. This Privacy Policy provides a
+                  <span className="text-[#004475] font-bold">Livik Tech</span>,
+                  we believe in transparency. This Privacy Policy provides a
                   clear explanation of how we collect, use and protect your
                   personal information.
                 </p>
@@ -175,9 +173,9 @@ export default function PrivacyPolicyPage() {
                           Livik Software Solutions Pvt. Ltd.
                         </p>
                         <p className="text-gray-500 text-base leading-relaxed">
-                          9th cross, RM Colony
+                          HIG A-7, 2nd street, 9th cross, RM Colony
                           <br />
-                          Dindigul- 624001, TamilNadu
+                          Dindigul - 624001, TamilNadu
                           <br />
                           INDIA
                         </p>

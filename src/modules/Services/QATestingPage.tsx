@@ -298,7 +298,7 @@ export default function QATestingPage() {
             <h2 className="text-center text-2xl md:text-3xl lg:text-5xl font-bold leading-tight">
               Ship Faster Without Breaking Your Product
             </h2>
-            <p className="text-lead text-muted-foreground mt-8">
+            <p className="text-lead text-muted-foreground mt-8 text-justify">
               Releasing fast is important—but releasing broken software is
               expensive. We implement structured QA processes and automated
               testing pipelines to detect issues early, reduce manual effort,
@@ -411,7 +411,7 @@ export default function QATestingPage() {
             <h2 className="text-3xl md:text-5xl font-bold leading-tight">
               Ready to Release Without Risk?
             </h2>
-            <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto mt-4 text-blue-50">
+            <p className="text-xl text-justify opacity-90 mb-8 max-w-2xl mx-auto mt-4 text-blue-50">
               If bugs, crashes, or performance issues are slowing you down, it’s
               time to fix your QA process.
             </p>

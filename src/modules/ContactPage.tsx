@@ -5,7 +5,14 @@ import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, ArrowRight, CheckCircle, CheckCircle2 } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  ArrowRight,
+  CheckCircle,
+  CheckCircle2,
+} from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from "emailjs-com";
 import { motion } from "framer-motion";
@@ -15,7 +22,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Main Office",
-    details: ["9th cross, R.M.Colony", "Dindigul-624001"],
+    details: ["HIG A-7, 2nd street, 9th cross, R.M.Colony", "Dindigul-624001"],
   },
   {
     icon: MapPin,
@@ -193,7 +200,12 @@ export default function ContactPage() {
                         Inquiry Submitted!
                       </h3>
                       <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md mx-auto mb-8">
-                        Thank you, <span className="font-semibold text-slate-800">{submittedName}</span>. We have received your project details and our team will get back to you shortly.
+                        Thank you,{" "}
+                        <span className="font-semibold text-slate-800">
+                          {submittedName}
+                        </span>
+                        . We have received your project details and our team
+                        will get back to you shortly.
                       </p>
 
                       {/* LinkedIn follow inside card */}
@@ -202,7 +214,9 @@ export default function ContactPage() {
                           Stay Connected with Livik!
                         </h4>
                         <p className="text-gray-500 text-xs md:text-sm leading-relaxed mb-4">
-                          For the latest job openings, updates, industry insights, and business solutions designed to help you grow, follow us on LinkedIn!
+                          For the latest job openings, updates, industry
+                          insights, and business solutions designed to help you
+                          grow, follow us on LinkedIn!
                         </p>
                         <a
                           href="https://www.linkedin.com/company/livik-software/"
@@ -515,6 +529,7 @@ export default function ContactPage() {
                           </h4>
                         </div>
                         <div className="text-[#1a1a1a] text-sm font-medium leading-relaxed pl-9">
+                          <p>HIG A-7, 2nd street,</p>
                           <p>9th cross, RM Colony, </p>
                           <p>Dindigul - 624001, Tamilnadu</p>
                           <p>India</p>
