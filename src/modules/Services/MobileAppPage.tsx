@@ -109,7 +109,7 @@ export default function MobileAppPage() {
             <h2 className="text-center text-2xl md:text-3xl lg:text-5xl font-bold leading-tight">
               Designing Mobile Experiences That Users Keep Coming Back To
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed mt-8">
+            <p className="text-lg text-muted-foreground leading-relaxed mt-8 text-justify">
               Mobile isn’t just a channel—it’s where your customers engage,
               transact and stay connected. We build user-centric mobile apps
               that combine clean UI/UX, strong performance and scalable
@@ -220,7 +220,7 @@ export default function MobileAppPage() {
             <h2 className="text-center text-2xl md:text-3xl lg:text-5xl font-bold leading-tight">
               Ready to Build a Mobile App That Performs in the Real World?
             </h2>
-            <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto mt-4">
+            <p className="text-xl text-justify opacity-90 mb-8 max-w-2xl mx-auto mt-4">
               If your app doesn’t engage users, it won’t survive.
               <br />
               Let’s build something that stands out—and scales.

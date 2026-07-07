@@ -295,7 +295,7 @@ export default function AzureDataEngineeringPage() {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section
-        className={`cl-hero flex flex-col pt-10 pb-20 bg-[#051121] ${isVisible ? "is-visible" : ""}`}
+        className={`cl-hero flex flex-col pt-10 pb-20 px-4 md:px-8 bg-[#051121] ${isVisible ? "is-visible" : ""}`}
       >
         <div className="container-custom">
           <div className="flex justify-center mb-12">
@@ -349,7 +349,7 @@ export default function AzureDataEngineeringPage() {
             <h2 className="text-center text-2xl md:text-3xl lg:text-5xl font-bold leading-tight">
               End-to-End Data Platforms Designed for Scale
             </h2>
-            <p className="text-lead text-muted-foreground mt-8">
+            <p className="text-lead text-muted-foreground mt-8 text-justify">
               We design and implement comprehensive data solutions that handle
               ingestion, large-scale processing and unified analytics. Our
               approach ensures your data is secure, reliable and ready for
@@ -360,7 +360,7 @@ export default function AzureDataEngineeringPage() {
       </section>
 
       {/* Our Core Capabilities */}
-      <section className="pt-10 md:pt-14 pb-16 md:pb-24 relative overflow-hidden bg-[#004475] text-white">
+      <section className="pt-10 md:pt-14 pb-16 md:pb-24 px-4 md:px-8 relative overflow-hidden bg-[#004475] text-white">
         {/* Subtle grid pattern for depth */}
         <div
           className="absolute inset-0 opacity-10"
@@ -458,7 +458,7 @@ export default function AzureDataEngineeringPage() {
             <h2 className="text-3xl md:text-5xl font-bold leading-tight">
               Ready to Transform Your Raw Data?
             </h2>
-            <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto mt-4 text-blue-50">
+            <p className="text-xl text-justify opacity-90 mb-8 max-w-2xl mx-auto mt-4 text-blue-50">
               Modernize your data infrastructure with Azure and Databricks
               today.
             </p>

@@ -109,7 +109,7 @@ export default function CustomSoftwarePage() {
             <h2 className="text-center text-2xl md:text-3xl lg:text-5xl font-bold leading-tight">
               Tailored Software Built Around Your Business Goals
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed mt-8">
+            <p className="text-lg text-muted-foreground leading-relaxed mt-8 text-justify">
               Your business is unique. Your software should be too. We design
               and develop custom applications from the ground up, aligned with
               your processes, users and growth strategy. No bloated features. No
@@ -218,7 +218,7 @@ export default function CustomSoftwarePage() {
             <h2 className="text-center text-2xl md:text-3xl lg:text-5xl font-bold leading-tight">
               Ready to Build Software That Actually Moves Your Business Forward?
             </h2>
-            <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto mt-4">
+            <p className="text-xl text-justify opacity-90 mb-8 max-w-2xl mx-auto mt-4">
               If your current systems are slowing you down, it’s time to
               upgrade.
               <br />

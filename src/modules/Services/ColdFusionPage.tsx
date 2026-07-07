@@ -332,7 +332,7 @@ export default function ColdFusionPage() {
             <h2 className="text-center heading-section">
               Keep Your ColdFusion Systems Running—Without the Headaches
             </h2>
-            <p className="text-lead text-muted-foreground mt-8">
+            <p className="text-lead text-muted-foreground mt-8 text-justify">
               Replacing legacy systems is expensive, risky and time-consuming.
               We help businesses get more value from their existing ColdFusion
               applications by improving performance, fixing issues and gradually
@@ -345,7 +345,7 @@ export default function ColdFusionPage() {
       </section>
 
       {/* Capabilities */}
-      <section className="pt-10 md:pt-14 pb-16 md:pb-24 relative overflow-hidden bg-[#004475] text-white">
+      <section className="pt-10 md:pt-14 pb-16 md:pb-24 px-4 md:px-8 relative overflow-hidden bg-[#004475] text-white">
         {/* Subtle grid pattern for depth */}
         <div
           className="absolute inset-0 opacity-10"
@@ -450,7 +450,7 @@ export default function ColdFusionPage() {
             <h2 className="text-2xl md:text-5xl font-bold leading-tight">
               Ready to Stabilize or Modernize Your ColdFusion System?
             </h2>
-            <p className="text-lg md:text-xl opacity-90 mb-8 max-w-2xl mx-auto mt-4 text-blue-50">
+            <p className="text-lg md:text-xl text-justify opacity-90 mb-8 max-w-2xl mx-auto mt-4 text-blue-50">
               If your ColdFusion application is slowing you down or becoming
               harder to manage, it’s time to take control. Let’s make it stable,
               secure and future-ready.

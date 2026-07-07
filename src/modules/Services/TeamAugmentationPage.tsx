@@ -182,16 +182,18 @@ export default function TeamAugmentationPage() {
       />
 
       {/* Overview Section */}
-      <section className={`hero-react ${isVisible ? "is-visible" : ""}`}>
+      <section
+        className={`hero-react ${isVisible ? "is-visible" : ""} px-4 md:px-8`}
+      >
         <div className="container-custom max-w-4xl mx-auto text-center relative z-10">
           <h2 className="hero-react__title reveal">
             Build Your Team Without Slowing Down
           </h2>
-          <div className="mt-14 space-y-10">
-            <p className="hero-react__para reveal">
+          <div className="mt-6 space-y-10">
+            <p className="hero-react__para reveal text-justify">
               Traditional hiring is slow, expensive and unpredictable.
             </p>
-            <p className="hero-react__para reveal">
+            <p className="hero-react__para reveal text-justify">
               With staff augmentation, you get immediate access to experienced
               developers who work as an extension of your in-house team—without
               long hiring cycles or overhead.
@@ -209,7 +211,7 @@ export default function TeamAugmentationPage() {
       </section>
 
       {/* Roles Section */}
-      <section className="py-16 md:py-24 relative overflow-hidden bg-[#004475] text-white">
+      <section className="py-16 md:py-24 px-4 md:px-8 relative overflow-hidden bg-[#004475] text-white">
         {/* Subtle grid pattern for depth */}
         <div
           className="absolute inset-0 opacity-10"
@@ -269,7 +271,7 @@ export default function TeamAugmentationPage() {
       </section>
 
       {/* Engagement Models */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 px-4 md:px-8 bg-white">
         <div className="container-custom">
           <ScrollReveal className="text-center mb-10 md:mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#004475]">
@@ -308,7 +310,7 @@ export default function TeamAugmentationPage() {
       </section>
 
       {/* What You Gain */}
-      <section className="py-16 md:py-24 bg-slate-100/80">
+      <section className="py-16 md:py-24 px-4 md:px-8 bg-slate-100/80">
         <div className="container-custom">
           <ScrollReveal className="text-center mb-10 md:mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#004475]">
@@ -343,7 +345,7 @@ export default function TeamAugmentationPage() {
         </div>
       </section>
       {/* Why Choose Section */}
-      <section className="wc-section py-16 md:py-24 bg-slate-200/50">
+      <section className="wc-section py-16 md:py-24 px-4 md:px-8 bg-slate-200/50">
         <div className="container-custom">
           <ScrollReveal className="text-center mb-10 md:mb-16">
             {/* <span className="wc-eyebrow">WHY CHOOSE US</span> */}
@@ -378,7 +380,7 @@ export default function TeamAugmentationPage() {
       </section>
 
       {/* Who This Is For & How We Help */}
-      <section className="py-16 md:py-24 bg-slate-100/80">
+      <section className="py-16 md:py-24 px-4 md:px-8 bg-slate-100/80">
         <div className="container-custom grid lg:grid-cols-2 gap-10 lg:gap-20">
           <div>
             <ScrollReveal>
@@ -424,13 +426,13 @@ export default function TeamAugmentationPage() {
       </section>
 
       {/* CTA Footer */}
-      <section className="py-16 md:py-24 gradient-hero text-white">
+      <section className="py-16 md:py-24 px-4 md:px-8 gradient-hero text-white">
         <div className="container-custom text-center">
           <ScrollReveal>
             <h2 className="text-3xl md:text-5xl font-bold leading-tight">
               Ready to Scale Your Development Team Faster?
             </h2>
-            <p className="text-xl opacity-90 mb-10 max-w-2xl mx-auto mt-6 leading-relaxed">
+            <p className="text-xl text-justify opacity-90 mb-10 max-w-2xl mx-auto mt-6 leading-relaxed">
               If hiring delays are slowing your product, it’s time to switch to
               a faster, more flexible model.
               <br />

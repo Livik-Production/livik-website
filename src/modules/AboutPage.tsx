@@ -291,7 +291,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-12 md:py-16 bg-[#004475] text-white relative overflow-hidden">
+      <section className="py-12 md:py-16 bg-[#004475] text-white relative overflow-hidden px-4 md:px-8">
         {/* Subtle grid pattern for depth */}
         <div
           className="absolute inset-0 opacity-10"
@@ -303,11 +303,12 @@ export default function AboutPage() {
         />
 
         <div className="container-custom relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-15 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={sectionTransition}
+              className="text-center lg:text-left"
             >
               <h1 className="text-3xl md:text-5xl font-bold mb-7 leading-[1.4]">
                 Building Digital{" "}
@@ -330,14 +331,14 @@ export default function AboutPage() {
                   </span>
                 </span>
               </h1>
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-7 opacity-60 text-[10px] md:text-xs font-bold uppercase tracking-[0.15em] md:tracking-[0.2em]">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-2 mb-7 opacity-60 text-[10px] md:text-xs font-bold uppercase tracking-[0.15em] md:tracking-[0.2em]">
                 <span>#InnovateFaster</span>
                 <span className="text-[#33a8d9]">•</span>
                 <span>#BuildSmarter</span>
                 <span className="text-[#33a8d9]">•</span>
                 <span>#ScaleBetter</span>
               </div>
-              <ul className="space-y-4 mb-10 text-white/80">
+              <ul className="space-y-4 mb-10 text-white/80 text-left inline-block">
                 {[
                   "Transform ideas into powerful digital experiences with modern web, mobile and AI solutions.",
                   "Build fast, reliable and future-ready products focused on scalable technology.",
@@ -364,7 +365,7 @@ export default function AboutPage() {
               >
                 Let’s build the future together — smarter, faster and better.
               </motion.p>
-              <div className="flex flex-col sm:flex-row gap-4 mb-10">
+              <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 mb-10">
                 <Button
                   size="lg"
                   className="bg-[#33a8d9]/90 hover:bg-[#33a8d9] text-white border-none"
@@ -386,7 +387,7 @@ export default function AboutPage() {
             </motion.div>
 
             {/* Stats Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-15 gap-y-15">
+            <div className="grid grid-cols-2 sm:grid-cols-2 gap-8 lg:gap-12 pb-6">
               {stats.map((stat, i) => (
                 <motion.div
                   key={i}
@@ -482,7 +483,7 @@ export default function AboutPage() {
       </section>
 
       {/* Built on Vision and Code – Values */}
-      <section className="py-8 md:py-9 bg-slate-50">
+      <section className="py-8 md:py-9 bg-slate-50 px-4 md:px-8">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -513,7 +514,7 @@ export default function AboutPage() {
                 variants={cardVariants}
                 whileHover={{ y: -4, transition: hoverTransition }}
                 transition={hoverTransition}
-                className="relative overflow-hidden rounded-2xl bg-white border-2 border-gray-200 group-hover:border-[#33a8d9]/40 hover:border-[#33a8d9]/40 shadow-sm hover:shadow-md transition-all duration-300 p-6 flex gap-5 group cursor-default"
+                className="relative overflow-hidden rounded-2xl bg-white border-2 border-gray-200 group-hover:border-[#33a8d9]/40 hover:border-[#33a8d9]/40 shadow-sm hover:shadow-md transition-all duration-300 p-6 flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-5 group cursor-default"
               >
                 {/* Icon */}
                 <div
@@ -607,10 +608,10 @@ export default function AboutPage() {
       </section> */}
 
       {/* Introducing Our Team Redesigned */}
-      <section className="py-8 md:py-12 bg-[#fcfdfe]">
+      <section className="py-8 md:py-9 bg-[#fcfdfe] px-4 md:px-6">
         <div className="container-custom">
           {/* Header Row */}
-          <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-8 mb-5">
+          <div className="flex flex-col lg:flex-row lg:items-start justify-between space-y-4">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -884,7 +885,7 @@ export default function AboutPage() {
         </div>
       </section> */}
       {/* Final Closing Section */}
-      <section className="py-12 md:py-16 bg-[#004475] text-white relative overflow-hidden">
+      <section className="py-12 md:py-16 bg-[#004475] text-white relative overflow-hidden px-4 md:px-8">
         <div className="absolute inset-0 opacity-5 bg-[url('/grid.svg')] bg-center" />
         <div className="container-custom relative z-10 text-center">
           <motion.div
@@ -897,7 +898,7 @@ export default function AboutPage() {
             <h2 className="text-4xl md:text-5xl font-bold mb-8">
               Let’s build the future together
             </h2>
-            <p className="text-xl text-white/70 mb-12 leading-relaxed">
+            <p className="text-lg text-white/70 mb-8 leading-relaxed text-justify">
               Whether you are building a new product, modernizing an existing
               platform, or scaling your engineering capabilities, Livik is
               committed to delivering technology solutions you can depend on.

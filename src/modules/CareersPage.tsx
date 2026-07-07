@@ -246,8 +246,9 @@ export default function CareersPage({ jobs }: { jobs: JobPosting[] }) {
                 Growth Mindset
               </h3>
               <p className="text-slate-600 text-sm md:text-base leading-relaxed">
-                We believe challenges create opportunities. By staying adaptable,
-                we continuously improve ourselves and the value we deliver.
+                We believe challenges create opportunities. By staying
+                adaptable, we continuously improve ourselves and the value we
+                deliver.
               </p>
             </div>
 
@@ -260,8 +261,8 @@ export default function CareersPage({ jobs }: { jobs: JobPosting[] }) {
                 Together We Thrive
               </h3>
               <p className="text-slate-600 text-sm md:text-base leading-relaxed">
-                Success is a shared journey. Through collaboration and mutual support,
-                we grow stronger and achieve more together.
+                Success is a shared journey. Through collaboration and mutual
+                support, we grow stronger and achieve more together.
               </p>
             </div>
           </div>
@@ -303,8 +304,7 @@ export default function CareersPage({ jobs }: { jobs: JobPosting[] }) {
             {/* Left Content */}
             <div className="text-center flex flex-col items-center justify-center max-w-xl mx-auto md:mx-0">
               <h3 className="text-4xl md:text-4xl font-bold text-white text-center mb-6 tracking-tight leading-tight">
-                {/* Don't see a fit? */} Stay Connected with Livik Software
-                Solution
+                {/* Don't see a fit? */} Stay Connected with Livik Tech
               </h3>
               <p className="text-white text-center text-md md:text-lg mb-10 leading-relaxed">
                 {/* We're always looking for talented people. Send us your resume anyway! */}{" "}
@@ -336,7 +336,7 @@ export default function CareersPage({ jobs }: { jobs: JobPosting[] }) {
             <div className="w-full aspect-[4/3] md:aspect-[16/10] relative overflow-hidden group rounded-2xl">
               <img
                 src="/images/careers-linkedin-connect.png"
-                alt="Livik Software Solutions LinkedIn Connection"
+                alt="Livik Tech LinkedIn Connection"
                 className="w-full h-full object-cover object-center absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none rounded-2xl" />

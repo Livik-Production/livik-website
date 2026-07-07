@@ -336,7 +336,7 @@ export default function JavaPage() {
             <h2 className="text-center heading-section">
               Build Systems That Don’t Break Under Pressure
             </h2>
-            <p className="text-lead text-muted-foreground mt-8">
+            <p className="text-lead text-muted-foreground mt-8 text-justify">
               Java is trusted for mission-critical systems—but execution
               determines success. We design and develop Java applications that
               are stable, maintainable and built for scale. From complex
@@ -350,7 +350,7 @@ export default function JavaPage() {
       </section>
 
       {/* Capabilities */}
-      <section className="pt-10 md:pt-14 pb-16 md:pb-24 relative overflow-hidden bg-[#004475] text-white">
+      <section className="pt-10 md:pt-14 pb-16 md:pb-24 px-4 md:px-8 relative overflow-hidden bg-[#004475] text-white">
         {/* Subtle grid pattern for depth */}
         <div
           className="absolute inset-0 opacity-10"
@@ -455,7 +455,7 @@ export default function JavaPage() {
             <h2 className="text-center heading-section">
               Ready to Build with Java?
             </h2>
-            <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto mt-4">
+            <p className="text-xl text-justify opacity-90 mb-8 max-w-2xl mx-auto mt-4">
               If your application needs to be secure, scalable and reliable
               under pressure, Java is the right choice—and execution is
               everything.

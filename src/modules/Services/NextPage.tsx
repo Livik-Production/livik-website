@@ -135,7 +135,7 @@ export default function NextPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative min-h-[600px] flex items-center bg-[#051121] overflow-hidden py-20 lg:py-12">
+      <section className="relative min-h-[600px] flex items-center bg-[#051121] overflow-hidden py-20 lg:py-12 px-4 md:px-8">
         <div className="w-full px-6 lg:px-16 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
@@ -235,7 +235,7 @@ export default function NextPage() {
       </section>
 
       {/* Overview */}
-      <section ref={overviewRef} className="hero-react">
+      <section ref={overviewRef} className="hero-react px-4 md:px-8">
         <div className="container-custom max-w-4xl mx-auto text-center relative z-10">
           <h2
             className="hero-react__title reveal"
@@ -245,14 +245,14 @@ export default function NextPage() {
           </h2>
           <div className="mt-8 space-y-6">
             <p
-              className="hero-react__para reveal"
+              className="hero-react__para reveal text-justify"
               style={{ "--delay": "150ms" } as React.CSSProperties}
             >
               Performance isn&apos;t optional—it directly impacts user
               experience and business outcomes.
             </p>
             <p
-              className="hero-react__para reveal"
+              className="hero-react__para reveal text-justify"
               style={{ "--delay": "300ms" } as React.CSSProperties}
             >
               We use Next.js to build applications that are pre-rendered,
@@ -260,7 +260,7 @@ export default function NextPage() {
               times, better responsiveness and improved user engagement.
             </p>
             <p
-              className="hero-react__para reveal"
+              className="hero-react__para reveal text-justify"
               style={{ "--delay": "450ms" } as React.CSSProperties}
             >
               From dynamic platforms to content-heavy websites, we deliver
@@ -272,7 +272,7 @@ export default function NextPage() {
       </section>
 
       {/* Capabilities */}
-      <section className="pt-10 md:pt-14 pb-16 md:pb-24 relative overflow-hidden bg-[#004475] text-white">
+      <section className="pt-10 md:pt-14 pb-16 md:pb-24 px-4 md:px-8 relative overflow-hidden bg-[#004475] text-white">
         {/* Subtle grid pattern for depth */}
         <div
           className="absolute inset-0 opacity-10"
@@ -392,7 +392,7 @@ export default function NextPage() {
             <h2 className="text-center heading-section">
               Ready to Build with Next.js?
             </h2>
-            <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto mt-4 space-y-2">
+            <p className="text-xl text-justify opacity-90 mb-8 max-w-2xl mx-auto mt-4 space-y-2">
               <span>
                 If your current application is slow, hard to scale, or
                 underperforming, it’s time to upgrade.
