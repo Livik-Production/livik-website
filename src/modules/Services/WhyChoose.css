@@ -1,0 +1,198 @@
+:root {
+  --wc-ink: #0f172a;
+  --wc-ink-2: #1f2937;
+  --wc-gray: #475569;
+  --wc-gray-2: #64748b;
+  --wc-border: #e5e7eb;
+  
+  --wc-dark: #004475;
+  --wc-light: #cfe6f7;
+  --wc-light-2: #eaf4fc;
+  --wc-accent: #1d8fe1;
+}
+
+.wc-section {
+  background-color: #ffffff;
+}
+
+/* Feature Card */
+.wc-feature-card {
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.wc-feature-card:hover {
+  transform: translateY(-6px);
+  background-color: #ffffff;
+  border-color: var(--wc-light);
+  box-shadow: 0 12px 32px rgba(0, 68, 117, 0.08), 0 0 0 1px rgba(29, 143, 225, 0.14);
+}
+
+.wc-icon-tile {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--wc-light-2) 0%, var(--wc-light) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--wc-dark);
+  transition: all 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.group:hover .wc-icon-tile {
+  background: linear-gradient(135deg, var(--wc-dark) 0%, var(--wc-accent) 100%);
+  color: #ffffff;
+  transform: rotate(-6deg) scale(1.06);
+}
+
+.group:hover .wc-icon-tile svg {
+  transform: rotate(6deg);
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.wc-icon-tile svg {
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.wc-feature-title {
+  color: var(--wc-ink);
+  transition: color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.wc-feature-card:hover .wc-feature-title {
+  color: var(--wc-dark);
+}
+
+.wc-feature-desc {
+  color: var(--wc-gray);
+}
+
+/* Right Content */
+.wc-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  background-color: var(--wc-light-2);
+  border: 1px solid var(--wc-light);
+  color: var(--wc-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.wc-heading {
+  color: var(--wc-ink);
+  
+}
+
+.wc-heading-highlight {
+  color: var(--wc-dark);
+}
+
+.wc-desc {
+  color: var(--wc-light-2);
+  margin-top: 1.5rem;
+  line-height: 1.75;
+}
+
+/* Quote Card */
+.wc-quote-card {
+  margin-top: 2.5rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: #f8fafc;
+  border: 1px solid var(--wc-border);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.wc-quote-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: var(--wc-dark);
+  transition: background-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border-radius: 4px 0 0 4px;
+  z-index: 10;
+}
+
+.wc-quote-card:hover {
+  transform: translateY(-4px);
+  background-color: #ffffff;
+  box-shadow: 0 20px 40px rgba(0, 68, 117, 0.08), 0 0 0 1px rgba(29, 143, 225, 0.14);
+}
+
+.wc-quote-card:hover::before {
+  background-color: var(--wc-accent);
+}
+
+/* Radial blue glow fades in from top-left */
+.wc-quote-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at top left, rgba(29, 143, 225, 0.05), transparent 50%);
+  opacity: 0;
+  transition: opacity 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+  pointer-events: none;
+}
+
+.wc-quote-card:hover::after {
+  opacity: 1;
+}
+
+.wc-quote-text {
+  color: var(--wc-ink-2);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  font-style: italic;
+  font-weight: 600;
+  position: relative;
+  z-index: 10;
+}
+
+.wc-quote-icon {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  color: var(--wc-light);
+  transition: all 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 5;
+}
+
+.wc-quote-card:hover .wc-quote-icon {
+  color: var(--wc-accent);
+  transform: rotate(-8deg) scale(1.08);
+}
+
+.wc-quote-author {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--wc-ink);
+  font-weight: 600;
+  font-size: 0.875rem;
+  position: relative;
+  z-index: 10;
+}
+
+.wc-quote-author::before {
+  content: '';
+  display: block;
+  width: 1.25rem;
+  height: 2px;
+  background-color: var(--wc-accent);
+}
