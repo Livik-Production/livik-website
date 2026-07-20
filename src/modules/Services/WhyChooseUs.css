@@ -1,0 +1,173 @@
+.wcu-section {
+  background-color:#E2E8F0;
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.wcu-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 2px;
+  background: var(--brand-gradient);
+  border-radius: 2px;
+  z-index: 10;
+}
+
+.wcu-blueprint {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(0, 68, 117, 0.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0, 68, 117, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 60% 70% at 50% 50%, #000 20%, transparent 75%);
+}
+
+.wcu-container {
+  position: relative;
+  z-index: 10;
+}
+
+.wcu-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brand-light);
+  margin-bottom: 1.5rem;
+}
+
+.wcu-heading {
+  color: var(--ink);
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.heading-refined {
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.wcu-heading-accent {
+  color: var(--brand-deep);
+}
+
+.wcu-underline {
+  width: 64px;
+  height: 3px;
+  margin: 18px auto 0;
+  background: var(--brand-gradient);
+  border-radius: 3px;
+}
+
+.wcu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin-top: 72px;
+}
+
+.wcu-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 72px;
+}
+
+@media (max-width: 1024px) {
+  .wcu-grid, .wcu-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .wcu-grid, .wcu-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.wcu-card {
+  background: #ffffff;
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  padding: 40px 28px 36px;
+  text-align: center;
+  box-shadow: var(--shadow-rest);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+              border-color 0.35s,
+              box-shadow 0.4s;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.wcu-card::before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  bottom: -1px;
+  width: 4px;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  background: var(--brand-gradient);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 2;
+}
+
+.wcu-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--hairline-brand);
+  box-shadow: var(--shadow-hover);
+}
+
+.wcu-card:hover::before {
+  transform: scaleY(1);
+}
+
+.wcu-icon-wrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: rgba(51, 168, 217, 0.10);
+  color: var(--brand-deep);
+  margin: 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.4s, color 0.4s, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.wcu-card:hover .wcu-icon-wrap {
+  background: var(--brand-gradient);
+  color: #fff;
+  transform: translateY(-3px) scale(1.05);
+}
+
+.wcu-card-title {
+  font: 700 18px/1.35 'Inter', sans-serif;
+  color: var(--ink);
+  margin-top: 24px;
+}
+
+.wcu-card-desc {
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  line-height: 1.7;
+  margin-top: 12px;
+}
