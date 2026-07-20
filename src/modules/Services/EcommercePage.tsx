@@ -203,7 +203,7 @@ export default function EcommercePage() {
   return (
     <div className="min-h-screen">
       {/* Parallax Hero Section */}
-      <div className="sticky top-0 h-[80vh] md:h-[80vh] w-full flex items-center justify-center overflow-hidden">
+      <div className="sticky top-0 h-[90vh] md:h-[90vh] w-full flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -856,31 +856,25 @@ export default function EcommercePage() {
 
         {/* Industries We Serve Section */}
         <section className="py-6 md:py-6 bg-slate-50 overflow-hidden">
-          <div className="container-custom px-4">
+          <div className="w-full px-4 md:px-10">
             {/* Industries We Serve */}
             <div
               id="industries"
-              className="scroll-mt-36 w-full pt-4 max-w-[1400px] mx-auto"
+              className="scroll-mt-36 w-full pt-4 max-w-[1600px] mx-auto"
             >
               <p className="text-lg md:text-2xl font-bold text-[#1A1A40] uppercase tracking-widest text-center px-4">
                 INDUSTRIES WE SERVE
               </p>
 
-              <div className="flex flex-nowrap justify-between items-end gap-1 md:gap-2 px-2 pt-8 pb-4 w-full">
+              <div className="flex flex-nowrap md:justify-between items-end gap-3 md:gap-4 px-2 md:px-10 pt-8 pb-4 w-full overflow-x-auto scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                 {[
-                  {
-                    name: "Fashion & Apparel",
-                    img: "/images/3d-fashion-dress.png",
-                  },
+                  { name: "Fashion & Apparel", img: "/images/3d-fashion-dress.png" },
                   { name: "Furniture", img: "/images/3d-furniture.png" },
                   { name: "Electronics", img: "/images/3d-headset.png" },
                   { name: "Manufacturing", emoji: "🏭" },
                   { name: "Healthcare", img: "/images/3d-healthcare.png" },
                   { name: "Food & Beverage", img: "/images/3d-food.png" },
-                  {
-                    name: "Wholesale Distribution",
-                    img: "/images/3d-wholesale.png",
-                  },
+                  { name: "Wholesale Distribution", img: "/images/3d-wholesale.png" },
                   { name: "Automotive", img: "/images/3d-automotive.png" },
                   { name: "Jewelry", img: "/images/3d-jewelry.png" },
                   { name: "Lifestyle Brands", emoji: "👜" },
@@ -888,21 +882,21 @@ export default function EcommercePage() {
                 ].map((ind, idx) => (
                   <div
                     key={idx}
-                    className="bg-white rounded-xl flex-1 max-w-[124px] h-20 md:h-30 flex flex-col items-center justify-center shadow-[0_2px_15px_rgba(0,0,0,0.04)] border border-gray-100 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 cursor-pointer group"
+                    className="bg-white shrink-0 min-w-[110px] md:min-w-0 rounded-xl flex-1 max-w-[150px] h-28 md:h-36 flex flex-col items-center justify-center shadow-[0_2px_15px_rgba(0,0,0,0.04)] border border-gray-100 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 cursor-pointer group"
                   >
                     {ind.img ? (
                       <img
                         src={ind.img}
                         alt={ind.name}
-                        className="w-10 h-10 md:w-12 md:h-12 mb-1.5 md:mb-2 object-contain mix-blend-multiply hover:scale-110 transition-transform duration-300"
+                        className="w-12 h-12 md:w-16 md:h-16 mb-2 md:mb-3 object-contain mix-blend-multiply hover:scale-110 transition-transform duration-300"
                       />
                     ) : ind.emoji ? (
-                      <span className="text-2xl md:text-3xl mb-1.5 md:mb-2 hover:scale-110 transition-transform duration-300">
+                      <span className="text-3xl md:text-4xl mb-2 md:mb-3 hover:scale-110 transition-transform duration-300">
                         {ind.emoji}
                       </span>
                     ) : null}
                     <span
-                      className="text-[9.5px] md:text-[11.5px] font-bold text-gray-700 text-center px-0.5 md:px-1 leading-tight line-clamp-2"
+                      className="text-[10.5px] md:text-[13px] font-bold text-gray-700 text-center px-1 md:px-2 leading-tight line-clamp-2"
                       title={ind.name}
                     >
                       {ind.name}

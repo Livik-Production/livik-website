@@ -190,10 +190,9 @@ export default function OpenResumePage() {
                   <span className="font-semibold text-slate-800">
                     {formData.fullName}
                   </span>
-                  .We have received your open application, and our Talent
-                  Acquisition team will review your profile shortly. If your
-                  profile is shortlisted and matches our expected qualifications
-                  and skill requirements, our HR team will contact you soon.
+                  .We have received your open application, and our Talent Acquisition team will
+                  review your profile shortly. If your profile is shortlisted and matches our
+                  expected qualifications and skill requirements, our HR team will contact you soon.
                 </p>
 
                 {/* LinkedIn follow inside card */}
@@ -362,7 +361,7 @@ export default function OpenResumePage() {
                 {/* Input Row: Role & Portfolio */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {formData.experience === "mid" ||
-                  formData.experience === "senior" ? (
+                    formData.experience === "senior" ? (
                     <>
                       <div>
                         <label className="block text-sm font-semibold text-[#004475] mb-2">

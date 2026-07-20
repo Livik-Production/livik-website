@@ -5,14 +5,7 @@ import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  ArrowRight,
-  CheckCircle,
-  CheckCircle2,
-} from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight, CheckCircle, CheckCircle2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from "emailjs-com";
 import { motion } from "framer-motion";
@@ -65,7 +58,7 @@ export default function ContactPage() {
     name: "",
     email: "",
     whatsapp: "",
-    service: "Software Outsourcing",
+    service: "Ecommerce Development",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -200,12 +193,7 @@ export default function ContactPage() {
                         Inquiry Submitted!
                       </h3>
                       <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md mx-auto mb-8">
-                        Thank you,{" "}
-                        <span className="font-semibold text-slate-800">
-                          {submittedName}
-                        </span>
-                        . We have received your project details and our team
-                        will get back to you shortly.
+                        Thank you, <span className="font-semibold text-slate-800">{submittedName}</span>. We have received your project details and our team will get back to you shortly.
                       </p>
 
                       {/* LinkedIn follow inside card */}
@@ -214,9 +202,7 @@ export default function ContactPage() {
                           Stay Connected with Livik!
                         </h4>
                         <p className="text-gray-500 text-xs md:text-sm leading-relaxed mb-4">
-                          For the latest job openings, updates, industry
-                          insights, and business solutions designed to help you
-                          grow, follow us on LinkedIn!
+                          For the latest job openings, updates, industry insights, and business solutions designed to help you grow, follow us on LinkedIn!
                         </p>
                         <a
                           href="https://www.linkedin.com/company/livik-software/"
@@ -339,6 +325,7 @@ export default function ContactPage() {
                             </Label>
                             <div className="flex flex-wrap gap-x-12 gap-y-6 ml-1 mt-5">
                               {[
+                                "Ecommerce Development",
                                 "Software Outsourcing",
                                 "Staff Augmentation",
                                 "Dedicated Teams",

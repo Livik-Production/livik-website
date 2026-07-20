@@ -15,18 +15,10 @@ export async function POST(req: Request) {
       appliedPosition,
     } = body;
 
-    if (
-      !fullName ||
-      !email ||
-      !phone ||
-      !skills ||
-      !location ||
-      !experience ||
-      !appliedPosition
-    ) {
+    if (!fullName || !email || !phone || !skills || !location || !experience || !appliedPosition) {
       return NextResponse.json(
         { error: "Missing required fields" },
-        { status: 400 },
+        { status: 400 }
       );
     }
 
@@ -38,7 +30,7 @@ export async function POST(req: Request) {
       if (existingApplication) {
         return NextResponse.json(
           { error: "An application with this email already exists." },
-          { status: 400 },
+          { status: 400 }
         );
       }
 
@@ -57,40 +49,37 @@ export async function POST(req: Request) {
 
       return NextResponse.json(
         { success: true, data: newApplication },
-        { status: 201 },
+        { status: 201 }
       );
     } catch (dbError: any) {
-      console.error(
-        "Database save failed, running fallback simulation:",
-        dbError,
-      );
-
+      console.error("Database save failed, running fallback simulation:", dbError);
+      
       // If it's a unique constraint error on email, return 400
       if (
-        (dbError.code === "P2002" && dbError.meta?.target?.includes("email")) ||
-        dbError.message?.includes("email")
+        (dbError.code === 'P2002' && dbError.meta?.target?.includes('email')) ||
+        dbError.message?.includes('email')
       ) {
         return NextResponse.json(
           { error: "An application with this email already exists." },
-          { status: 400 },
+          { status: 400 }
         );
       }
 
       // For any other connection/pool error, simulate successful buffer to prevent user-facing 500 error
       return NextResponse.json(
-        {
-          success: true,
-          fallback: true,
-          data: { fullName, email, phoneNumber: phone, appliedPosition },
+        { 
+          success: true, 
+          fallback: true, 
+          data: { fullName, email, phoneNumber: phone, appliedPosition } 
         },
-        { status: 201 },
+        { status: 201 }
       );
     }
   } catch (error: any) {
     console.error("General error handling job application:", error);
     return NextResponse.json(
       { error: "Internal Server Error" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

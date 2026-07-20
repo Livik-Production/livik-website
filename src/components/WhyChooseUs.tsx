@@ -122,10 +122,7 @@ export default function WhyChooseUs() {
 
         <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-8 lg:gap-16 items-center">
           {/* Left side: Accordion */}
-          <div
-            ref={whySectionRef}
-            className="space-y-1 text-center lg:text-left"
-          >
+          <div ref={whySectionRef} className="space-y-1 text-center lg:text-left">
             {activeServiceModel === "augmentation" ? (
               <div className="py-4 lg:py-12">
                 <motion.div
@@ -190,11 +187,10 @@ export default function WhyChooseUs() {
                         <Icon className="h-5 w-5" />
                       </div>
                       <p
-                        className={`text-xl font-bold transition-all duration-300 ${
-                          isActive
-                            ? "text-white scale-105 origin-left"
-                            : "text-white/60 group-hover:text-white/80"
-                        }`}
+                        className={`text-xl font-bold transition-all duration-300 ${isActive
+                          ? "text-white scale-105 origin-left"
+                          : "text-white/60 group-hover:text-white/80"
+                          }`}
                       >
                         {item.title}
                       </p>
@@ -226,11 +222,10 @@ export default function WhyChooseUs() {
               <button
                 key={model.id}
                 onClick={() => setActiveServiceModel(model.id)}
-                className={`flex-1 px-6 py-3.5 rounded-xl text-sm font-bold transition-all duration-300 ${
-                  activeServiceModel === model.id
-                    ? "bg-[#1a1a1a] text-white shadow-xl"
-                    : "text-gray-600 hover:text-[#1a1a1a] hover:bg-white/50"
-                }`}
+                className={`flex-1 px-6 py-3.5 rounded-xl text-sm font-bold transition-all duration-300 ${activeServiceModel === model.id
+                  ? "bg-[#1a1a1a] text-white shadow-xl"
+                  : "text-gray-600 hover:text-[#1a1a1a] hover:bg-white/50"
+                  }`}
               >
                 {model.label}
               </button>

@@ -322,7 +322,7 @@ const Footer = () => {
                     About Us
                   </Link>
                 </li>
-                <li>
+                 <li>
                   <Link
                     href="/careers"
                     className="hover:text-blue-400 transition-colors"
@@ -398,8 +398,8 @@ const Footer = () => {
                     <h4 className="text-lg font-bold text-black">INDIA</h4>
                   </div>
                   <p className="text-sm text-gray-600 leading-relaxed font-medium">
-                    HIG A-7, 2nd street,
-                    <br />
+                    HIG A-7, 2nd street, 
+                    <br/>
                     9th cross, RM Colony
                     <br />
                     Dindigul - 624001, TamilNadu
@@ -417,8 +417,8 @@ const Footer = () => {
                   <p className="text-sm text-gray-600 leading-relaxed font-medium">
                     289 Redclover Ln,
                     <br />
-                    Allentown,
-                    <br />
+                    Allentown, 
+                    <br/> 
                     Pennsylvania,
                     <br />
                     USA

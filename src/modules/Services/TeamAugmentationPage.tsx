@@ -182,9 +182,7 @@ export default function TeamAugmentationPage() {
       />
 
       {/* Overview Section */}
-      <section
-        className={`hero-react ${isVisible ? "is-visible" : ""} px-4 md:px-8`}
-      >
+      <section className={`hero-react ${isVisible ? "is-visible" : ""} px-4 md:px-8`}>
         <div className="container-custom max-w-4xl mx-auto text-center relative z-10">
           <h2 className="hero-react__title reveal">
             Build Your Team Without Slowing Down
