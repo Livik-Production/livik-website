@@ -130,7 +130,6 @@ export default function ApplyForm({ job }: ApplyFormProps) {
 
   return (
     <section id="apply" className="py-8 bg-[#004475] relative overflow-hidden scroll-mt-24">
-      {/* Background Sparks */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
         {SPARKS.map((spark, i) => (
           <motion.div

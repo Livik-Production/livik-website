@@ -66,34 +66,26 @@
 
   .container-color {
     background:
-      bg-radial-gradient(
-        1200px 500px at 50% 120%,
+      bg-radial-gradient(1200px 500px at 50% 120%,
         rgba(56, 189, 248, 0.25),
-        transparent 60%
-      ),
-      linear-gradient(
-        180deg,
+        transparent 60%),
+      linear-gradient(180deg,
         #030f16 0%,
         #06202e 35%,
         #093147 70%,
-        #0c3f5d 100%
-      );
+        #0c3f5d 100%);
   }
 
   .container-color {
     background:
-      radial-gradient(
-        1200px 500px at 50% 120%,
+      radial-gradient(1200px 500px at 50% 120%,
         rgba(56, 189, 248, 0.25),
-        transparent 60%
-      ),
-      linear-gradient(
-        180deg,
+        transparent 60%),
+      linear-gradient(180deg,
         #030f16 0%,
         #06202e 35%,
         #093147 70%,
-        #0c3f5d 100%
-      );
+        #0c3f5d 100%);
   }
 
   .gradient-hero {
@@ -264,12 +256,10 @@
   right: -120px;
   top: -120px;
   pointer-events: none;
-  background: radial-gradient(
-    circle,
-    #1d8fe138 0%,
-    #1d8fe114 40%,
-    transparent 70%
-  );
+  background: radial-gradient(circle,
+      #1d8fe138 0%,
+      #1d8fe114 40%,
+      transparent 70%);
   filter: blur(24px);
 }
 
@@ -280,12 +270,10 @@
   left: -80px;
   bottom: -80px;
   pointer-events: none;
-  background: radial-gradient(
-    circle,
-    #1d8fe12e 0%,
-    #1d8fe10f 40%,
-    transparent 70%
-  );
+  background: radial-gradient(circle,
+      #1d8fe12e 0%,
+      #1d8fe10f 40%,
+      transparent 70%);
   filter: blur(24px);
 }
 
@@ -320,8 +308,7 @@
 }
 
 .cl-hero__card:hover {
-  transform: perspective(900px) rotateX(calc(var(--rx)))
-    rotateY(calc(var(--ry))) scale(calc(var(--scale)));
+  transform: perspective(900px) rotateX(calc(var(--rx))) rotateY(calc(var(--ry))) scale(calc(var(--scale)));
 }
 
 .cl-hero__scan {
@@ -330,12 +317,10 @@
   right: 0;
   top: 40%;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(29, 143, 225, 0.6),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(29, 143, 225, 0.6),
+      transparent);
   animation: cl-scan 8s ease-in-out infinite;
   pointer-events: none;
 }
@@ -352,11 +337,9 @@
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.22s var(--ease-hero);
-  background: radial-gradient(
-    circle 220px at var(--mx) var(--my),
-    rgba(29, 143, 225, 0.45) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle 220px at var(--mx) var(--my),
+      rgba(29, 143, 225, 0.45) 0%,
+      transparent 70%);
   filter: blur(8px);
 }
 
@@ -401,12 +384,10 @@
   top: 0;
   bottom: 0;
   width: 120%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255, 255, 255, 0.35),
-    transparent
-  );
+  background: linear-gradient(120deg,
+      transparent,
+      rgba(255, 255, 255, 0.35),
+      transparent);
   transform: skewX(-20deg);
   transition: left 0.8s var(--ease-hero);
 }
@@ -416,6 +397,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .cl-hero__card,
   .cl-hero__card-svg,
   .cl-hero__scan {
@@ -471,12 +453,10 @@
   left: -100%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.8),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.8),
+      transparent);
   animation: shimmer 2.4s infinite;
 }
 
@@ -627,13 +607,11 @@
   inset: 0;
   padding: 1px;
   border-radius: 16px;
-  background: linear-gradient(
-    135deg,
-    #33a8d9,
-    transparent,
-    transparent,
-    #004475
-  );
+  background: linear-gradient(135deg,
+      #33a8d9,
+      transparent,
+      transparent,
+      #004475);
   background-size: 200% 200%;
   animation: techBorderShift 4s linear infinite;
   mask:
@@ -669,12 +647,10 @@
   left: -75%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(51, 168, 217, 0.15),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(51, 168, 217, 0.15),
+      transparent);
   transform: skewX(-20deg);
   transition: left 0.7s ease;
   pointer-events: none;
@@ -770,6 +746,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .wcu-card,
   .tech-card,
   .tech-card-border,
@@ -819,16 +796,12 @@
   width: 100%;
   height: 100%;
   background:
-    radial-gradient(
-      900px 600px at 90% 0%,
+    radial-gradient(900px 600px at 90% 0%,
       rgba(51, 168, 217, 0.15),
-      transparent 60%
-    ),
-    radial-gradient(
-      700px 500px at 10% 0%,
+      transparent 60%),
+    radial-gradient(700px 500px at 10% 0%,
       rgba(51, 168, 217, 0.1),
-      transparent 65%
-    );
+      transparent 65%);
   pointer-events: none;
   z-index: 0;
 }
@@ -941,11 +914,9 @@
   right: -60px;
   width: 180px;
   height: 180px;
-  background: radial-gradient(
-    circle,
-    rgba(51, 168, 217, 0.18),
-    transparent 70%
-  );
+  background: radial-gradient(circle,
+      rgba(51, 168, 217, 0.18),
+      transparent 70%);
   opacity: 0;
   transition: opacity 0.5s;
   pointer-events: none;
@@ -1083,11 +1054,9 @@
 .why-section {
   padding: 2rem 0;
   background-color: #004475;
-  background-image: radial-gradient(
-    circle at 50% 50%,
-    rgba(31, 110, 212, 0.15) 0%,
-    transparent 70%
-  );
+  background-image: radial-gradient(circle at 50% 50%,
+      rgba(31, 110, 212, 0.15) 0%,
+      transparent 70%);
   color: #ffffff;
   overflow: hidden;
   position: relative;
@@ -1261,8 +1230,7 @@
   min-width: clamp(40px, 16vw, 90px);
   min-height: clamp(40px, 16vw, 90px);
   --node-r: var(--orbit-r);
-  transform: translate(-50%, -50%) rotate(var(--angle))
-    translateY(calc(-1 * var(--node-r)));
+  transform: translate(-50%, -50%) rotate(var(--angle)) translateY(calc(-1 * var(--node-r)));
   transform-origin: center center;
   opacity: 1;
   z-index: 5;
@@ -1443,13 +1411,11 @@
 }
 
 .fade-group--in {
-  animation: contentFadeIn var(--why-fade-ms) both
-    cubic-bezier(0.22, 1, 0.36, 1);
+  animation: contentFadeIn var(--why-fade-ms) both cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .fade-group--out {
-  animation: contentFadeOut var(--why-fade-ms) both
-    cubic-bezier(0.55, 0.05, 0.68, 0.19);
+  animation: contentFadeOut var(--why-fade-ms) both cubic-bezier(0.55, 0.05, 0.68, 0.19);
 }
 
 .orbit-spinner.fade-group--in .orbit-node {
@@ -1559,41 +1525,36 @@
 @keyframes nodePop {
   0% {
     opacity: 0;
-    transform: translate(-50%, -50%) rotate(var(--angle))
-      translateY(calc(-0.6 * var(--node-r)));
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(calc(-0.6 * var(--node-r)));
   }
 
   100% {
     opacity: 1;
-    transform: translate(-50%, -50%) rotate(var(--angle))
-      translateY(calc(-1 * var(--node-r)));
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(calc(-1 * var(--node-r)));
   }
 }
 
 @keyframes nodeFade {
   0% {
     opacity: 1;
-    transform: translate(-50%, -50%) rotate(var(--angle))
-      translateY(calc(-1 * var(--node-r)));
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(calc(-1 * var(--node-r)));
   }
 
   100% {
     opacity: 0;
-    transform: translate(-50%, -50%) rotate(var(--angle))
-      translateY(calc(-0.6 * var(--node-r)));
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(calc(-0.6 * var(--node-r)));
   }
 }
 
 @keyframes nodeFloat {
+
   0%,
   100% {
-    transform: translate(-50%, -50%) rotate(var(--angle))
-      translateY(calc(-1 * var(--node-r)));
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(calc(-1 * var(--node-r)));
   }
 
   50% {
-    transform: translate(-50%, -50%) rotate(var(--angle))
-      translateY(calc(-1 * var(--node-r) - 8px));
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(calc(-1 * var(--node-r) - 8px));
   }
 }
 
@@ -1626,6 +1587,7 @@
 }
 
 @keyframes glowPulse {
+
   0%,
   100% {
     transform: scale(1);
@@ -1725,6 +1687,7 @@
 }
 
 @media (max-width: 480px) {
+
   .tech-marquee-container::before,
   .tech-marquee-container::after {
     width: 30px;
@@ -1791,6 +1754,7 @@
 }
 
 @keyframes csh-pulse {
+
   0%,
   100% {
     opacity: 0.45;
@@ -1804,6 +1768,7 @@
 }
 
 @keyframes csh-float {
+
   0%,
   100% {
     transform: translateY(0);
@@ -1871,6 +1836,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .animate-csh-spin-slow,
   .animate-csh-spin-slow-rev,
   .animate-csh-spin-mid,
@@ -1899,16 +1865,12 @@
     radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   background-size: 64px 64px;
-  -webkit-mask-image: radial-gradient(
-    ellipse 70% 70% at 50% 50%,
-    #000 30%,
-    transparent 80%
-  );
-  mask-image: radial-gradient(
-    ellipse 70% 70% at 50% 50%,
-    #000 30%,
-    transparent 80%
-  );
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%,
+      #000 30%,
+      transparent 80%);
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%,
+      #000 30%,
+      transparent 80%);
 }
 
 .wv2-container {
@@ -2050,21 +2012,17 @@
 .wv2-anchor-top .wv2-connector {
   bottom: 14px;
   height: 36px;
-  background: linear-gradient(
-    to top,
-    var(--brand-light),
-    rgba(51, 168, 217, 0)
-  );
+  background: linear-gradient(to top,
+      var(--brand-light),
+      rgba(51, 168, 217, 0));
 }
 
 .wv2-anchor-bottom .wv2-connector {
   top: 14px;
   height: 36px;
-  background: linear-gradient(
-    to bottom,
-    var(--brand-light),
-    rgba(51, 168, 217, 0)
-  );
+  background: linear-gradient(to bottom,
+      var(--brand-light),
+      rgba(51, 168, 217, 0));
 }
 
 .wv2-card {
@@ -2229,12 +2187,8 @@
   scrollbar-color: #cbd5e1 transparent;
 }
 @keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
 }
 .animate-marquee {
   animation: marquee 30s linear infinite;
@@ -2246,12 +2200,8 @@
 }
 
 @keyframes marquee-reverse {
-  0% {
-    transform: translateX(-50%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
 }
 .animate-marquee-reverse {
   animation: marquee-reverse 30s linear infinite;

@@ -246,9 +246,8 @@ export default function CareersPage({ jobs }: { jobs: JobPosting[] }) {
                 Growth Mindset
               </h3>
               <p className="text-slate-600 text-sm md:text-base leading-relaxed">
-                We believe challenges create opportunities. By staying
-                adaptable, we continuously improve ourselves and the value we
-                deliver.
+                We believe challenges create opportunities. By staying adaptable,
+                we continuously improve ourselves and the value we deliver.
               </p>
             </div>
 
@@ -261,8 +260,8 @@ export default function CareersPage({ jobs }: { jobs: JobPosting[] }) {
                 Together We Thrive
               </h3>
               <p className="text-slate-600 text-sm md:text-base leading-relaxed">
-                Success is a shared journey. Through collaboration and mutual
-                support, we grow stronger and achieve more together.
+                Success is a shared journey. Through collaboration and mutual support,
+                we grow stronger and achieve more together.
               </p>
             </div>
           </div>

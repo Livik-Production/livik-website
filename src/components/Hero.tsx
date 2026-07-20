@@ -27,7 +27,6 @@ const Hero = () => {
     offset: ["start start", "end start"],
   });
 
-  // Parallax & Zoom for image
   const imgY = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
   const imgOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);

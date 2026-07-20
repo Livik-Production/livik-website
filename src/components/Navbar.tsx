@@ -136,11 +136,17 @@ const services = {
       icon: ShoppingCart,
       href: "/services/ecommerce-development",
     },
-    // {
-    //   name: "Headless",
-    //   sub: "API-first commerce solutions",
-    //   icon: Code2,
-    //   href: "/services/Headless-development",
+    {
+      name: "Headless Commerce",
+      sub: "API-first commerce solutions",
+      icon: Code2,
+      href: "/services/headless-commerce-development",
+    },
+    //  {
+    //   name: "Medusajs Development",
+    //   sub: "Open-source ecommerce platform",
+    //   icon: FaNodeJs,
+    //   href: "/services/medusajs-development-company",
     // },
   ],
   "CLOUD & INFRA": [
@@ -407,18 +413,17 @@ const Navbar = () => {
   if (pathname === "/maintenance") return null;
 
   return (
-    <header
-      className={`sticky top-0 z-50 transition-all duration-700 ease-in-out w-full flex justify-center pointer-events-none ${isScrolled ? "pt-4" : ""}`}
-    >
+    <header className={`sticky top-0 z-50 transition-all duration-700 ease-in-out w-full flex justify-center pointer-events-none ${isScrolled ? 'pt-4' : ''}`}>
       <nav
         ref={navRef}
-        className={`pointer-events-auto transition-all duration-700 ease-in-out mx-auto ${
-          isScrolled
-            ? "w-[95%] max-w-[850px] rounded-full bg-white/75 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-200/60 px-4 md:px-8 py-1.5 md:py-1"
-            : "w-full max-w-full border-b border-gray-100 bg-white px-4 md:px-10 py-1.5"
-        }`}
+        className={`pointer-events-auto transition-all duration-700 ease-in-out mx-auto ${isScrolled
+          ? "w-[95%] max-w-[850px] rounded-full bg-white/75 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-200/60 px-4 md:px-8 py-1.5 md:py-1"
+          : "w-full max-w-full border-b border-gray-100 bg-white px-4 md:px-10 py-1.5"
+          }`}
         onMouseLeave={handleMouseLeave}
       >
+
+
         <div
           className="mx-auto flex items-center justify-between relative z-50"
           onMouseLeave={handleMouseLeave}
@@ -431,9 +436,7 @@ const Navbar = () => {
             <Link href="/" className="flex items-center">
               <div className="flex gap-x-3 items-center transition-all">
                 <div className="flex items-center">
-                  <div
-                    className={`transition-all duration-700 ease-in-out ${isScrolled ? "w-10 sm:w-8 md:w-9 lg:w-11" : "w-12 sm:w-10 md:w-11 lg:w-13"}`}
-                  >
+                  <div className={`transition-all duration-700 ease-in-out ${isScrolled ? 'w-10 sm:w-8 md:w-9 lg:w-11' : 'w-12 sm:w-10 md:w-11 lg:w-13'}`}>
                     <Image
                       src="/Logo.png"
                       alt="Livik"
@@ -458,9 +461,7 @@ const Navbar = () => {
                   Software Solutions
                 </div>
               </div> */}
-                <div
-                  className={`justify-center transition-all duration-700 ease-in-out overflow-hidden ${isScrolled ? "max-w-0 opacity-0 ml-0" : "max-w-[200px] opacity-100"}`}
-                >
+                <div className={`justify-center transition-all duration-700 ease-in-out overflow-hidden ${isScrolled ? 'max-w-0 opacity-0 ml-0' : 'max-w-[200px] opacity-100'}`}>
                   {/* <Image
                   src="/Name-logo.png"
                   alt="Livik"
@@ -500,16 +501,14 @@ const Navbar = () => {
                   const textFlipContent = (
                     <span className="relative inline-flex flex-col overflow-hidden h-[1.2em]">
                       <span
-                        className={`inline-block transition-transform duration-1200 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                          isHovered ? "-translate-y-full" : "translate-y-0"
-                        }`}
+                        className={`inline-block transition-transform duration-1200 ease-[cubic-bezier(0.22,1,0.36,1)] ${isHovered ? "-translate-y-full" : "translate-y-0"
+                          }`}
                       >
                         {item.label}
                       </span>
                       <span
-                        className={`inline-block transition-transform duration-1200 ease-[cubic-bezier(0.22,1,0.36,1)] border-b-[1.5px] border-[#003366] pb-[1px] ${
-                          isHovered ? "-translate-y-full" : "translate-y-0"
-                        }`}
+                        className={`inline-block transition-transform duration-1200 ease-[cubic-bezier(0.22,1,0.36,1)] border-b-[1.5px] border-[#003366] pb-[1px] ${isHovered ? "-translate-y-full" : "translate-y-0"
+                          }`}
                       >
                         {item.label}
                       </span>
@@ -536,28 +535,23 @@ const Navbar = () => {
                         <span
                           onMouseEnter={() => handleMouseEnter(item.id)}
                           onMouseLeave={handleMouseLeave}
-                          className={`relative z-10 font-bold tracking-widest transition-all duration-700 ease-in-out flex items-center gap-1 px-3 ${
-                            isScrolled
-                              ? "text-[12px] md:text-sm py-1.5"
-                              : "text-sm md:text-base py-2"
-                          } ${
-                            isHovered || isActive
+                          className={`relative z-10 font-bold tracking-widest transition-all duration-700 ease-in-out flex items-center gap-1 px-3 ${isScrolled ? 'text-[12px] md:text-sm py-1.5' : 'text-sm md:text-base py-2'
+                            } ${isHovered || isActive
                               ? "text-[#003366]"
                               : "text-black"
-                          }`}
+                            }`}
                           onClick={() => handleHeaderClick(item.id)}
                         >
                           {textFlipContent}
                           <ChevronDown
                             size={12}
                             strokeWidth={3}
-                            className={`transition-all duration-300 translate-y-[1.5px] ${
-                              activeDropdown === item.id
-                                ? "rotate-180 text-[#003366]"
-                                : isHovered
-                                  ? "text-[#003366]"
-                                  : "text-black"
-                            }`}
+                            className={`transition-all duration-300 translate-y-[1.5px] ${activeDropdown === item.id
+                              ? "rotate-180 text-[#003366]"
+                              : isHovered
+                                ? "text-[#003366]"
+                                : "text-black"
+                              }`}
                           />
                         </span>
                       ) : (
@@ -565,15 +559,11 @@ const Navbar = () => {
                           href={item.href}
                           onMouseEnter={() => handleMouseEnter(item.id)}
                           onMouseLeave={handleMouseLeave}
-                          className={`relative z-10 font-bold tracking-widest flex items-center transition-all duration-700 ease-in-out px-3 ${
-                            isScrolled
-                              ? "text-[12px] md:text-sm py-1.5"
-                              : "text-sm md:text-base py-2"
-                          } ${
-                            isHovered || isActive
+                          className={`relative z-10 font-bold tracking-widest flex items-center transition-all duration-700 ease-in-out px-3 ${isScrolled ? 'text-[12px] md:text-sm py-1.5' : 'text-sm md:text-base py-2'
+                            } ${isHovered || isActive
                               ? "text-[#003366]"
                               : "text-black"
-                          }`}
+                            }`}
                         >
                           {textFlipContent}
                         </Link>
@@ -591,9 +581,7 @@ const Navbar = () => {
 
             {pathname !== "/contact" && (
               <Link href="/contact" className="hidden md:block">
-                <button
-                  className={`font-extrabold text-white transition-all duration-700 ease-in-out bg-[#004475] border-2 border-[#0b5370] shadow-inner hover:shadow-[0_6px_18px_rgba(3,54,78,0.25)] active:scale-95 tracking-wide ${isScrolled ? "rounded-[10px] px-3 py-1.5 text-xs" : "rounded-xl px-4 py-2 text-sm"}`}
-                >
+                <button className={`font-extrabold text-white transition-all duration-700 ease-in-out bg-[#004475] border-2 border-[#0b5370] shadow-inner hover:shadow-[0_6px_18px_rgba(3,54,78,0.25)] active:scale-95 tracking-wide ${isScrolled ? 'rounded-[10px] px-3 py-1.5 text-xs' : 'rounded-xl px-4 py-2 text-sm'}`}>
                   CONTACT US
                 </button>
               </Link>
@@ -634,7 +622,7 @@ const Navbar = () => {
                     ["ECOMMERCE DEVELOPMENT"],
                     ["CLOUD & INFRA", "SPECIALIZED"],
                     ["FRONTEND"],
-                    ["BACKEND"],
+                    ["BACKEND"]
                   ].map((columnCategories, colIdx) => (
                     <motion.div
                       key={colIdx}
@@ -644,8 +632,7 @@ const Navbar = () => {
                       className="flex flex-col gap-8"
                     >
                       {columnCategories.map((category) => {
-                        const items =
-                          services[category as keyof typeof services];
+                        const items = services[category as keyof typeof services];
                         if (!items) return null;
                         return (
                           <div key={category}>
@@ -870,11 +857,10 @@ const Navbar = () => {
                               setIsMobileMenuOpen(false);
                             }
                           }}
-                          className={`group flex items-center justify-between p-4 rounded-xl transition-all cursor-pointer ${
-                            isHighlighted
-                              ? "bg-white/5 border-l-4 border-blue-500 shadow-lg"
-                              : "hover:bg-white/5 border-l-4 border-transparent"
-                          }`}
+                          className={`group flex items-center justify-between p-4 rounded-xl transition-all cursor-pointer ${isHighlighted
+                            ? "bg-white/5 border-l-4 border-blue-500 shadow-lg"
+                            : "hover:bg-white/5 border-l-4 border-transparent"
+                            }`}
                         >
                           <div className="flex items-center gap-4">
                             <div className="flex items-center justify-center w-6 h-6">
@@ -950,9 +936,7 @@ const Navbar = () => {
                                       <Link
                                         key={sol.name}
                                         href={sol.href}
-                                        onClick={() =>
-                                          setIsMobileMenuOpen(false)
-                                        }
+                                        onClick={() => setIsMobileMenuOpen(false)}
                                         className="flex items-center gap-4 text-base font-bold text-gray-300 hover:text-white transition-colors"
                                       >
                                         <div className="h-7 w-7 rounded bg-blue-500/15 flex items-center justify-center text-blue-400">

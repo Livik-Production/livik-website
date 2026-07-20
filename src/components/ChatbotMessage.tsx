@@ -3,6 +3,7 @@ interface Props {
   isUser: boolean;
 }
 
+
 export default function ChatbotMessage({
   text,
   isUser,
