@@ -27,21 +27,11 @@ import {
   ContactIcon,
   Settings,
 } from "lucide-react";
-import { ColdFusionIcon } from "./ColdFusionIcon";
 import { SapIcon } from "./SapIcon";
 import {
-  FaReact,
-  FaAngular,
-  FaVuejs,
-  FaJava,
-  FaNodeJs,
-  FaPython,
-  FaPhp,
-  FaGolang,
   FaSackDollar,
   FaPeopleArrows,
 } from "react-icons/fa6";
-import { SiNextdotjs } from "react-icons/si";
 import { motion, AnimatePresence } from "framer-motion";
 
 const industrySolutions = [
@@ -99,6 +89,12 @@ const industrySolutions = [
 const services = {
   "CORE SERVICES": [
     {
+      name: "ERP Systems",
+      sub: "Enterprise Resource Planning",
+      icon: Database,
+      href: "/services/erp-systems",
+    },
+    {
       name: "Artificial Intelligence",
       sub: "AI Development Services",
       icon: Cpu,
@@ -122,12 +118,6 @@ const services = {
       icon: Bug,
       href: "/services/qa",
     },
-    {
-      name: "Team Augmentation",
-      sub: "Dedicated Tech Teams  ",
-      icon: UserPlus,
-      href: "/services/team-augmentation",
-    },
   ],
   "ECOMMERCE DEVELOPMENT": [
     {
@@ -148,6 +138,14 @@ const services = {
     //   icon: FaNodeJs,
     //   href: "/services/medusajs-development-company",
     // },
+  ],
+  "STAFF AUGMENTATION": [
+    {
+      name: "Team Augmentation",
+      sub: "Dedicated Tech Teams",
+      icon: UserPlus,
+      href: "/services/team-augmentation",
+    },
   ],
   "CLOUD & INFRA": [
     {
@@ -175,70 +173,6 @@ const services = {
       sub: "Azure & Databricks",
       icon: Database,
       href: "/services/azure-data-engineering",
-    },
-  ],
-  FRONTEND: [
-    {
-      name: "Angular",
-      sub: "Enterprise web apps",
-      icon: FaAngular,
-      href: "/services/angular-js-development",
-    },
-    {
-      name: "Next.js",
-      sub: "Server-Rendered React",
-      icon: SiNextdotjs,
-      href: "/services/next-js-development",
-    },
-    {
-      name: "React.js",
-      sub: "Component-based UI",
-      icon: FaReact,
-      href: "/services/react-js-development",
-    },
-    {
-      name: "Vue.js",
-      sub: "Progressive framework",
-      icon: FaVuejs,
-      href: "/services/vue-js-development",
-    },
-  ],
-  BACKEND: [
-    {
-      name: "ColdFusion",
-      sub: "Rapid Web Development",
-      icon: ColdFusionIcon,
-      href: "/services/coldfusion-development",
-    },
-    {
-      name: "GoLang",
-      sub: "High-Performance systems",
-      icon: FaGolang,
-      href: "/services/golang-development",
-    },
-    {
-      name: "Java",
-      sub: "Enterprise Backend Solutions",
-      icon: FaJava,
-      href: "/services/java-development",
-    },
-    {
-      name: "Node.js",
-      sub: "Event-driven runtime",
-      icon: FaNodeJs,
-      href: "/services/node-js-development",
-    },
-    {
-      name: "PHP",
-      sub: "Stable server-side",
-      icon: FaPhp,
-      href: "/services/php-development",
-    },
-    {
-      name: "Python",
-      sub: "AI & Data solutions",
-      icon: FaPython,
-      href: "/services/python-development",
     },
   ],
 };
@@ -606,7 +540,7 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="hidden md:block absolute left-1/2 top-full -translate-x-1/2 w-[95vw] max-w-7xl z-50 origin-top"
+              className="hidden md:block absolute left-1/2 top-full -translate-x-1/2 w-[90vw] max-w-5xl z-50 origin-top"
               onMouseEnter={() => {
                 if (closeTimeoutRef.current) {
                   clearTimeout(closeTimeoutRef.current);
@@ -615,14 +549,12 @@ const Navbar = () => {
               }}
               onMouseLeave={handleMouseLeave}
             >
-              <div className="p-4 bg-white border border-gray-300 rounded-b-lg shadow-xl">
-                <div className="grid grid-cols-5 gap-5">
+              <div className="p-6 bg-white border border-gray-300 rounded-b-lg shadow-xl">
+                <div className="grid grid-cols-3 gap-8">
                   {[
                     ["CORE SERVICES"],
-                    ["ECOMMERCE DEVELOPMENT"],
+                    ["ECOMMERCE DEVELOPMENT", "STAFF AUGMENTATION"],
                     ["CLOUD & INFRA", "SPECIALIZED"],
-                    ["FRONTEND"],
-                    ["BACKEND"]
                   ].map((columnCategories, colIdx) => (
                     <motion.div
                       key={colIdx}

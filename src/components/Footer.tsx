@@ -79,6 +79,28 @@ const USAFlag = () => (
 
 const Footer = () => {
   const pathname = usePathname();
+  const companyLinks = [
+    { name: "About Us", href: "/about" },
+    { name: "Careers", href: "/careers" },
+    { name: "Contact Us", href: "/contact" },
+    { name: "Privacy Policy", href: "/privacy-policy" },
+    { name: "Terms and Conditions", href: "/terms-and-conditions" },
+  ];
+
+  const serviceLinks = [
+    { name: "Artificial Intelligence", href: "/services/ai-development" },
+    { name: "Cloud & DevOps", href: "/services/cloud-development" },
+    { name: "Cloud Migration", href: "/services/cloud-migration" },
+    { name: "ERP Systems", href: "/services/erp-systems" },
+    { name: "Custom Software", href: "/services/custom-software" },
+    { name: "Data Engineering", href: "/services/azure-data-engineering" },
+    { name: "Ecommerce", href: "/services/ecommerce-development" },
+    { name: "Mobile Apps", href: "/services/mobile-apps-development" },
+    { name: "QA", href: "/services/qa" },
+    { name: "SAP Consulting", href: "/services/sap" },
+    { name: "Team Augmentation", href: "/services/team-augmentation" },
+  ];
+
   const hireLinks = [
     {
       name: "Angular Developers",
@@ -100,13 +122,29 @@ const Footer = () => {
     // { name: "Shopify Developers", href: "/hire-shopify-developers" },
   ];
 
+  const frontendLinks = [
+    { name: "Angular", href: "/services/angular-js-development" },
+    { name: "Next.js", href: "/services/next-js-development" },
+    { name: "React.js", href: "/services/react-js-development" },
+    { name: "Vue.js", href: "/services/vue-js-development" },
+  ];
+
+  const backendLinks = [
+    { name: "ColdFusion", href: "/services/coldfusion-development" },
+    { name: "GoLang", href: "/services/golang-development" },
+    { name: "Java", href: "/services/java-development" },
+    { name: "Node.js", href: "/services/node-js-development" },
+    { name: "PHP", href: "/services/php-development" },
+    { name: "Python", href: "/services/python-development" },
+  ];
+
   if (pathname === "/maintenance") return null;
 
   return (
     <footer className="bg-[#0b0b0b] text-white">
       <div className="mx-auto px-4 py-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-4 space-y-10">
+          <div className="lg:col-span-3 space-y-10">
             <div className="space-y-4">
               <div className="inline-flex items-center rounded-lg shadow-lg border border-white bg-white">
                 <Image
@@ -145,230 +183,94 @@ const Footer = () => {
           </div>
 
           {/* Links Sections */}
-          <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-5 gap-8">
-            {/* Services */}
-            <div>
-              <h4 className="text-sm font-bold tracking-widest text-gray-400 mb-6 uppercase">
-                Services
-              </h4>
-              <ul className="space-y-4 text-sm font-semibold">
-                <li>
-                  <Link
-                    href="/services/ai-development"
-                    className="hover:text-blue-400 transition-colors"
-                  >
-                    Artificial Intelligence
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services/cloud-development"
-                    className="hover:text-blue-400 transition-colors"
-                  >
-                    Cloud & DevOps
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services/cloud-migration"
-                    className="hover:text-blue-400 transition-colors"
-                  >
-                    Cloud Migration
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services/custom-software"
-                    className="hover:text-blue-400 transition-colors"
-                  >
-                    Custom Software
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services/azure-data-engineering"
-                    className="hover:text-blue-400 transition-colors"
-                  >
-                    Data Engineering
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services/ecommerce-development"
-                    className="hover:text-blue-400 transition-colors"
-                  >
-                    Ecommerce
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services/mobile-apps-development"
-                    className="hover:text-blue-400 transition-colors"
-                  >
-                    Mobile Apps
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services/qa"
-                    className="hover:text-blue-400 transition-colors"
-                  >
-                    QA
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services/sap"
-                    className="hover:text-blue-400 transition-colors"
-                  >
-                    SAP Consulting
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services/team-augmentation"
-                    className="hover:text-blue-400 transition-colors"
-                  >
-                    Team Augmentation
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Solutions */}
-            <div>
-              <h4 className="text-sm font-bold tracking-widest text-gray-400 mb-6 uppercase">
-                Industries
-              </h4>
-              <ul className="space-y-4 text-sm font-semibold">
-                <li>
-                  <Link
-                    href="/solutions/education"
-                    className="hover:text-blue-400 transition-colors"
-                  >
-                    Education
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/solutions/fmcg"
-                    className="hover:text-blue-400 transition-colors"
-                  >
-                    FMCG
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/solutions/logistics"
-                    className="hover:text-blue-400 transition-colors"
-                  >
-                    Logistics & Supply Chain
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/solutions/retail"
-                    className="hover:text-blue-400 transition-colors"
-                  >
-                    Retail & Ecommerce
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/solutions/fintech"
-                    className="hover:text-blue-400 transition-colors"
-                  >
-                    Fintech
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/solutions/healthcare"
-                    className="hover:text-blue-400 transition-colors"
-                  >
-                    Healthcare
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/solutions/real-estate"
-                    className="hover:text-blue-400 transition-colors"
-                  >
-                    Real Estate
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/solutions/travel"
-                    className="hover:text-blue-400 transition-colors"
-                  >
-                    Travel & Hospitality
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
+          <div className="lg:col-span-9 grid grid-cols-2 md:grid-cols-4 gap-6 xl:gap-8">
             {/* Company */}
             <div>
-              <h4 className="text-sm font-bold tracking-widest text-gray-400 mb-6 uppercase">
+              <h4 className="text-sm font-bold tracking-wider text-gray-400 mb-6 uppercase whitespace-nowrap">
                 Company
               </h4>
               <ul className="space-y-4 text-sm font-semibold">
-                <li>
-                  <Link
-                    href="/about"
-                    className="hover:text-blue-400 transition-colors"
-                  >
-                    About Us
-                  </Link>
-                </li>
-                 <li>
-                  <Link
-                    href="/careers"
-                    className="hover:text-blue-400 transition-colors"
-                  >
-                    Careers
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/contact"
-                    className="hover:text-blue-400 transition-colors"
-                  >
-                    Contact Us
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/privacy-policy"
-                    className="hover:text-blue-400 transition-colors"
-                  >
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/terms-and-conditions"
-                    className="hover:text-blue-400 transition-colors"
-                  >
-                    Terms and Conditions
-                  </Link>
-                </li>
+                {companyLinks.map((link, idx) => (
+                  <li key={idx}>
+                    <Link
+                      href={link.href}
+                      className="hover:text-blue-400 transition-colors block whitespace-nowrap"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Services */}
+            <div>
+              <h4 className="text-sm font-bold tracking-wider text-gray-400 mb-6 uppercase whitespace-nowrap">
+                Services
+              </h4>
+              <ul className="space-y-4 text-sm font-semibold">
+                {serviceLinks.map((link, idx) => (
+                  <li key={idx}>
+                    <Link
+                      href={link.href}
+                      className="hover:text-blue-400 transition-colors block whitespace-nowrap"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
             {/* Hire Developers */}
-            <div className="col-span-2">
-              <h4 className="text-sm font-bold tracking-widest text-gray-400 mb-6 uppercase">
+            <div>
+              <h4 className="text-sm font-bold tracking-wider text-gray-400 mb-6 uppercase whitespace-nowrap">
                 Hire Developers
               </h4>
-              <div className="transition-all duration-300">
-                <ul className="flex flex-col gap-y-4 text-sm font-semibold">
-                  {hireLinks.map((link, idx) => (
+              <ul className="space-y-4 text-sm font-semibold">
+                {hireLinks.map((link, idx) => (
+                  <li key={idx}>
+                    <Link
+                      href={link.href}
+                      className="hover:text-blue-400 transition-colors block whitespace-nowrap"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Frontend & Backend */}
+            <div className="space-y-8">
+              <div>
+                <h4 className="text-sm font-bold tracking-wider text-gray-400 mb-6 uppercase whitespace-nowrap">
+                  Frontend
+                </h4>
+                <ul className="space-y-4 text-sm font-semibold">
+                  {frontendLinks.map((link, idx) => (
                     <li key={idx}>
                       <Link
                         href={link.href}
-                        className="hover:text-blue-400 transition-colors block"
+                        className="hover:text-blue-400 transition-colors block whitespace-nowrap"
+                      >
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-sm font-bold tracking-wider text-gray-400 mb-6 uppercase whitespace-nowrap">
+                  Backend
+                </h4>
+                <ul className="space-y-4 text-sm font-semibold">
+                  {backendLinks.map((link, idx) => (
+                    <li key={idx}>
+                      <Link
+                        href={link.href}
+                        className="hover:text-blue-400 transition-colors block whitespace-nowrap"
                       >
                         {link.name}
                       </Link>
@@ -398,8 +300,8 @@ const Footer = () => {
                     <h4 className="text-lg font-bold text-black">INDIA</h4>
                   </div>
                   <p className="text-sm text-gray-600 leading-relaxed font-medium">
-                    HIG A-7, 2nd street, 
-                    <br/>
+                    HIG A-7, 2nd street,
+                    <br />
                     9th cross, RM Colony
                     <br />
                     Dindigul - 624001, TamilNadu
@@ -417,8 +319,8 @@ const Footer = () => {
                   <p className="text-sm text-gray-600 leading-relaxed font-medium">
                     289 Redclover Ln,
                     <br />
-                    Allentown, 
-                    <br/> 
+                    Allentown,
+                    <br />
                     Pennsylvania,
                     <br />
                     USA
