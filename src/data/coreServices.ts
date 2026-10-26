@@ -39,6 +39,9 @@ import {
   GraduationCap,
   Target,
   Rocket,
+  Factory,
+  Settings,
+  IndianRupee,
 } from "lucide-react";
 
 export const coreServices = {
@@ -56,6 +59,28 @@ export const coreServices = {
     secondaryCTA: { label: "Talk to an Expert", href: "/contact" },
     ringOneIcons: [ShoppingBag, ShoppingCart, CreditCard, Package],
     ringTwoIcons: [Tag, Store, Gift, Truck],
+  },
+  "erp-systems": {
+    title: "Customized Manufacturing ERP Software",
+    tagline: "Your Factory. Your Process. Your ERP.",
+    subtitle:
+      "Every manufacturing business works differently. You may have your own way of planning production, purchasing materials, managing inventory, sending materials for outside processing, checking quality, selling products, and managing accounts.",
+    bullets: [
+      "A standard ERP may not always fit the way your business works.",
+      "Livik Tech builds customized Manufacturing ERP software around your actual business process.",
+      "Our ERP brings Production, Inventory, Purchase, Sales, Accounting, GST, E-Invoice, E-Way Bill and other business operations together in one connected system.",
+      "We don't ask you to change your business for the software. We build the software around your business.",
+    ],
+    primaryCTA: {
+      label: "Talk to us about your manufacturing process →",
+      href: "/contact?service=Manufacturing%20ERP",
+    },
+    secondaryCTA: {
+      label: "Talk to us about your manufacturing process →",
+      href: "/contact?service=Manufacturing%20ERP",
+    },
+    ringOneIcons: [Factory, Settings, Boxes, Cpu],
+    ringTwoIcons: [Truck, IndianRupee, Layers, Workflow],
   },
   AI: {
     title: "AI Development Services That Turn Data Into Real Business Outcomes",

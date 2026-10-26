@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -40,6 +40,7 @@ const servicesList = [
   "Mobile App Development",
   "Cloud Migration & DevOps",
   "SAP Implementation & Support",
+  "ERP Systems",
   "UI/UX Design",
   "QA Testing & Automation",
   "Staff Augmentation",
@@ -65,6 +66,30 @@ export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submittedName, setSubmittedName] = useState("");
   const { toast } = useToast();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const serviceParam = params.get("service");
+      if (serviceParam) {
+        const validOptions = [
+          "Ecommerce Development",
+          "ERP Systems",
+          "Software Outsourcing",
+          "Staff Augmentation",
+          "Dedicated Teams",
+        ];
+        const matched = validOptions.find(
+          (opt) =>
+            opt.toLowerCase() === serviceParam.toLowerCase() ||
+            opt.toLowerCase().includes(serviceParam.toLowerCase())
+        );
+        if (matched) {
+          setFormData((prev) => ({ ...prev, service: matched }));
+        }
+      }
+    }
+  }, []);
 
   const handleInputChange = (
     e: React.ChangeEvent<
@@ -326,6 +351,7 @@ export default function ContactPage() {
                             <div className="flex flex-wrap gap-x-12 gap-y-6 ml-1 mt-5">
                               {[
                                 "Ecommerce Development",
+                                "ERP Systems",
                                 "Software Outsourcing",
                                 "Staff Augmentation",
                                 "Dedicated Teams",

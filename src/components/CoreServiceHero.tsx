@@ -111,8 +111,12 @@ export default function CoreServiceHero({
               <span className="mx-2">›</span>
               <span className="text-gray-500">Core Services</span>
               <span className="mx-2">›</span>
-              <span className="text-white capitalize">
-                {slug.replace("-", " ")}
+              <span className="text-white">
+                {slug === "erp-systems"
+                  ? "ERP Systems"
+                  : slug === "AI"
+                    ? "AI"
+                    : slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
               </span>
             </nav>
           )}
@@ -121,6 +125,11 @@ export default function CoreServiceHero({
         {/* Title */}
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-white mb-6 animate-csh-fade-up [animation-delay:0.2s] max-w-4xl leading-[1.1]">
           {data.title}
+          {"tagline" in data && Boolean((data as { tagline?: string }).tagline) && (
+            <span className="block text-xl sm:text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-sky-400 via-sky-300 to-[#1d8fe1] bg-clip-text text-transparent mt-3">
+              {(data as { tagline?: string }).tagline}
+            </span>
+          )}
         </h1>
 
         {/* Subtitle */}
@@ -165,7 +174,7 @@ export default function CoreServiceHero({
   );
 }
 
-function Constellation({
+export function Constellation({
   accent,
   ringOne,
   ringTwo,
