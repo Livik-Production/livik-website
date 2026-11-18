@@ -177,10 +177,37 @@ const services = {
   ],
 };
 
+const solutionsMenu = [
+  {
+    name: "Glass Manufacturing ERP",
+    sub: "ERP for toughened glass",
+    icon: Factory,
+    href: "/solutions/toughened-glass-erp",
+  },
+  {
+    name: "Manufacturing ERP",
+    sub: "End-to-end production control",
+    icon: Settings,
+    href: "/solutions/manufacturing-erp",
+  },
+  {
+    name: "Custom ERP Solutions",
+    sub: "Built around your workflows",
+    icon: Database,
+    href: "/solutions/custom-erp",
+  },
+  {
+    name: "AI-Powered Business Solutions",
+    sub: "Automation & intelligence",
+    icon: Cpu,
+    href: "/solutions/ai-business-solutions",
+  },
+];
+
 // Nav items configuration
 const navItems = [
   { id: "services", label: "SERVICES", href: "#", hasDropdown: true },
-  { id: "solutions", label: "INDUSTRIES", href: "#", hasDropdown: true },
+  { id: "industries", label: "INDUSTRIES", href: "#", hasDropdown: true },
   { id: "about", label: "ABOUT US", href: "/about", hasDropdown: false },
   { id: "careers", label: "CAREERS", href: "/careers", hasDropdown: false },
   { id: "contact", label: "CONTACT US", href: "/contact", hasDropdown: false },
@@ -339,6 +366,7 @@ const Navbar = () => {
     if (pathname.startsWith("/careers")) return "careers";
     if (pathname.startsWith("/services")) return "services";
     if (pathname.startsWith("/solutions")) return "solutions";
+    if (pathname.startsWith("/industries")) return "industries";
     return null;
   };
 
@@ -351,7 +379,7 @@ const Navbar = () => {
       <nav
         ref={navRef}
         className={`pointer-events-auto transition-all duration-700 ease-in-out mx-auto ${isScrolled
-          ? "w-[95%] max-w-[850px] rounded-full bg-white/75 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-200/60 px-4 md:px-8 py-1.5 md:py-1"
+          ? "w-[95%] max-w-[1000px] rounded-full bg-white/75 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-200/60 px-4 md:px-8 py-1 md:py-0.5"
           : "w-full max-w-full border-b border-gray-100 bg-white px-4 md:px-10 py-1.5"
           }`}
         onMouseLeave={handleMouseLeave}
@@ -515,7 +543,7 @@ const Navbar = () => {
 
             {pathname !== "/contact" && (
               <Link href="/contact" className="hidden md:block">
-                <button className={`font-extrabold text-white transition-all duration-700 ease-in-out bg-[#004475] border-2 border-[#0b5370] shadow-inner hover:shadow-[0_6px_18px_rgba(3,54,78,0.25)] active:scale-95 tracking-wide ${isScrolled ? 'rounded-[10px] px-3 py-1.5 text-xs' : 'rounded-xl px-4 py-2 text-sm'}`}>
+                <button className={`font-extrabold text-white transition-all duration-700 ease-in-out bg-[#004475] border-2 border-[#0b5370] shadow-inner hover:shadow-[0_6px_18px_rgba(3,54,78,0.25)] active:scale-95 tracking-wide ${isScrolled ? 'rounded-[10px] px-3 py-1.5 text-xs whitespace-nowrap' : 'rounded-xl px-4 py-2 text-sm'}`}>
                   CONTACT US
                 </button>
               </Link>
@@ -610,6 +638,60 @@ const Navbar = () => {
         {/* Solutions Dropdown */}
         <AnimatePresence>
           {activeDropdown === "solutions" && (
+            <motion.div
+              initial={{ opacity: 0, y: -15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="hidden md:block absolute left-1/2 top-full -translate-x-1/2 w-[90vw] max-w-3xl z-50 origin-top"
+              onMouseEnter={() => {
+                if (closeTimeoutRef.current) {
+                  clearTimeout(closeTimeoutRef.current);
+                  closeTimeoutRef.current = null;
+                }
+              }}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="p-4 bg-white border border-gray-300 rounded-b-lg shadow-xl">
+                <div className="mt-2 grid grid-cols-2 gap-x-12 gap-y-6">
+                  {solutionsMenu.map((item, idx) => (
+                    <motion.div
+                      key={item.name}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 + idx * 0.03, duration: 0.3 }}
+                    >
+                      <Link
+                        href={item.href}
+                        onClick={() => {
+                          setActiveDropdown(null);
+                          setIsDropdownClicked(false);
+                        }}
+                        className="group flex items-start gap-4 cursor-pointer"
+                      >
+                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#004475] text-white transition-all duration-300">
+                          <item.icon size={20} />
+                        </div>
+                        <div>
+                          <h4 className="text-[15px] font-bold text-[#003366] group-hover:text-[#33a8d9] transition-colors">
+                            {item.name}
+                          </h4>
+                          <p className="text-[11px] font-medium text-gray-400 leading-tight">
+                            {item.sub}
+                          </p>
+                        </div>
+                      </Link>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Industries Dropdown */}
+        <AnimatePresence>
+          {activeDropdown === "industries" && (
             <motion.div
               initial={{ opacity: 0, y: -15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -750,6 +832,14 @@ const Navbar = () => {
                       }
                       if (item.id === "solutions") {
                         return (
+                          <Cpu
+                            size={24}
+                            className={`transition-all duration-300 ${vectorColorClass}`}
+                          />
+                        );
+                      }
+                      if (item.id === "industries") {
+                        return (
                           <Factory
                             size={24}
                             className={`transition-all duration-300 ${vectorColorClass}`}
@@ -864,7 +954,7 @@ const Navbar = () => {
                                   )
                                 ) : (
                                   <div className="grid grid-cols-1 gap-5">
-                                    {industrySolutions.map((sol) => (
+                                    {(item.id === "solutions" ? solutionsMenu : industrySolutions).map((sol) => (
                                       <Link
                                         key={sol.name}
                                         href={sol.href}
