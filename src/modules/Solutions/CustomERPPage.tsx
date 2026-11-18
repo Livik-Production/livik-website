@@ -3,6 +3,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scroll-reveal";
+import "../Services/WhyChoose.css";
 import {
   ArrowRight,
   CheckCircle2,
@@ -65,181 +68,172 @@ const faqs = [
   { q: "Do you provide ERP development for manufacturing companies?", a: "Yes. We develop manufacturing-focused ERP solutions covering production, BOM, inventory, procurement, costing and other factory operations." },
 ];
 
-const Tag = ({ children }: { children: React.ReactNode }) => (
-  <span className="inline-block rounded-full bg-[#004475]/10 px-4 py-1.5 text-xs font-bold tracking-widest text-[#004475]">
-    {children}
-  </span>
-);
-
-const fadeUp = (i = 0) => ({
-  initial: { opacity: 0, y: 24 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { delay: 0.06 * i, duration: 0.45 },
-});
-
 export default function CustomERPPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
-    <main>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#f3f8fe] via-white to-[#dcecfa] py-16 md:py-24">
-        <div className="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-[#33a8d9]/15 blur-3xl" />
-        <div className="relative mx-auto max-w-7xl px-6 md:px-10">
-          <div className="max-w-3xl">
-            <Tag>CUSTOM ERP SOLUTIONS</Tag>
-            <h1 className="mt-5 text-4xl font-extrabold leading-tight text-[#003366] md:text-5xl lg:text-6xl">
-              ERP Software Designed Around <span className="text-[#33a8d9]">Your Business</span>
+    <main className="min-h-screen bg-white">
+      {/* Hero (white) */}
+      <section className="px-4 py-10 md:px-8 md:py-10">
+        <div className="container-custom mx-auto max-w-4xl text-center">
+          <ScrollReveal>
+            <h1 className="mt-6 text-3xl font-bold leading-tight text-[#004475] md:text-5xl">
+              ERP Software Designed Around Your Business
             </h1>
-            <p className="mt-6 text-lg text-gray-600">
+            <p className="mt-8 text-xl text-gray-600">
               Every business has its own processes, workflows and operational requirements. Standard ERP software may
               not always fit the way your business operates.
             </p>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mt-4 text-xl text-gray-600">
               Livik Tech develops custom ERP solutions tailored to your business requirements. From managing daily
               operations and inventory to production, sales, finance and employee management, we build ERP systems that
               bring your business activities together.
             </p>
-            <p className="mt-4 text-lg font-medium text-[#003366]">
+            <p className="mt-4 text-xl font-medium text-[#004475]">
               Whether you are looking to replace spreadsheets, improve existing processes or build an ERP from scratch,
               we can help you develop a solution that fits your business.
             </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                href="/contact?service=Custom%20ERP%20Solutions"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#004475] px-6 py-3 font-bold text-white transition hover:bg-[#003366]"
-              >
-                Discuss Your ERP Requirements <ArrowRight size={18} />
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center rounded-xl border-2 border-[#004475] px-6 py-3 font-bold text-[#004475] transition hover:bg-[#004475]/5"
-              >
-                Book a Consultation
-              </Link>
+            <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+              <Button asChild size="lg" className="h-14 rounded-full bg-[#004475] px-8 font-bold text-white shadow-lg hover:bg-[#1d8fe1]">
+                <Link href="/contact?service=Custom%20ERP%20Solutions" className="flex items-center gap-2">
+                  Discuss Your ERP Requirements <ArrowRight size={18} />
+                </Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="h-14 rounded-full border-[#004475] px-8 font-bold text-[#004475] hover:bg-blue-50">
+                <Link href="/contact">Book a Consultation</Link>
+              </Button>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* Services */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-6 md:px-10">
-          <div className="mx-auto max-w-3xl text-center">
-            <Tag>SERVICES</Tag>
-            <h2 className="mt-4 text-3xl font-extrabold text-[#003366] md:text-4xl">
-              Custom ERP Development for Your Business
+      {/* Services (dark blue, like "AI Solutions We Deliver") */}
+      <section className="relative overflow-hidden bg-[#004475] px-4 py-14 text-white md:px-8">
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{ backgroundImage: "radial-gradient(#ffffff 0.5px, transparent 0.5px)", backgroundSize: "24px 24px" }}
+        />
+        <div className="container-custom relative z-10">
+          <ScrollReveal className="mb-10 text-center md:mb-16">
+            <h2 className="heading-section flex flex-wrap items-center justify-center gap-2 text-center text-white">
+              Custom ERP Development for Your{" "}
+              <span className="group relative inline-flex items-center justify-center overflow-hidden rounded-2xl px-7 py-2.5">
+                <span className="absolute inset-0 rounded-2xl border border-white/30 bg-gradient-to-br from-[#004475]/40 via-[#1d8fe1]/20 to-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] backdrop-blur-xl" />
+                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:animate-[shimmer_2s_infinite]" />
+                <span className="relative z-10 bg-gradient-to-br from-[#004475] via-white to-[#1d8fe1] bg-[length:200%_200%] bg-clip-text font-black tracking-tight text-transparent drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] animate-[gradShift_4s_linear_infinite]">
+                  Business
+                </span>
+                <span className="pointer-events-none absolute inset-0 rounded-2xl shadow-[inset_0_0_20px_rgba(255,255,255,0.1)]" />
+              </span>
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mx-auto mt-6 max-w-3xl text-lg text-blue-100">
               We work with businesses to understand their existing processes and develop ERP solutions based on their
               operational needs.
             </p>
-            <p className="mt-2 text-gray-500">Our custom ERP development services include:</p>
-          </div>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {services.map((s, i) => (
-              <motion.div
-                key={s.title}
-                {...fadeUp(i % 4)}
-                className="group rounded-2xl border border-gray-200 bg-[#f6f9fe] p-6 transition hover:-translate-y-1 hover:border-[#33a8d9] hover:bg-white hover:shadow-lg"
-              >
-                <div className="flex items-center justify-between">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#004475] text-white transition group-hover:bg-[#33a8d9]">
-                    <s.icon size={24} />
+            <p className="mt-2 text-blue-200">Our custom ERP development services include:</p>
+          </ScrollReveal>
+          <StaggerContainer>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {services.map((s) => (
+                <StaggerItem key={s.title}>
+                  <div className="group flex h-full flex-col rounded-2xl border border-gray-300 bg-white p-6 shadow-[0_4px_20px_rgba(0,68,117,0.06)] transition-all duration-[450ms] hover:-translate-y-[10px] hover:border-[#1d8fe1]">
+                    <div className="wc-icon-tile mb-6">
+                      <s.icon size={26} />
+                    </div>
+                    <h3 className="mb-4 text-xl font-bold text-[#004475]">{s.title}</h3>
+                    <p className="text-sm font-medium leading-relaxed text-[#506478]">{s.desc}</p>
                   </div>
-                  <span className="text-3xl font-extrabold text-[#004475]/15">{i + 1}</span>
-                </div>
-                <h3 className="mt-4 text-lg font-bold text-[#003366]">{s.title}</h3>
-                <p className="mt-2 text-gray-600">{s.desc}</p>
-              </motion.div>
-            ))}
-          </div>
+                </StaggerItem>
+              ))}
+            </div>
+          </StaggerContainer>
         </div>
       </section>
 
-      {/* Industries */}
-      <section className="bg-[#f6f9fe] py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-6 md:px-10">
-          <div className="mx-auto max-w-3xl text-center">
-            <Tag>INDUSTRIES</Tag>
-            <h2 className="mt-4 text-3xl font-extrabold text-[#003366] md:text-4xl">
+      {/* Industries (slate, like "What You Gain") */}
+      <section className="bg-slate-200 px-4 py-14 md:px-8 md:py-16">
+        <div className="container-custom">
+          <ScrollReveal className="mb-10 text-center md:mb-16">
+            <h2 className="text-3xl font-bold text-[#004475] md:text-4xl lg:text-5xl">
               ERP Solutions for Different Industries
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <p className="mx-auto mt-5 max-w-3xl text-lg text-gray-600">
               We develop ERP solutions based on the specific requirements of different business sectors.
             </p>
-          </div>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          </ScrollReveal>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {industries.map((ind, i) => (
-              <motion.div
-                key={ind.name}
-                {...fadeUp(i % 3)}
-                className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-[#33a8d9] hover:shadow-lg"
-              >
-                <h3 className="text-lg font-bold text-[#003366]">{ind.name}</h3>
-                <p className="mt-2 text-gray-600">{ind.desc}</p>
-              </motion.div>
+              <ScrollReveal key={ind.name} delay={(i % 3) * 0.1}>
+                <div className="group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-gray-300 bg-white p-6 shadow-[0_4px_20px_rgba(0,68,117,0.06)] transition-all duration-[450ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:-translate-y-[10px] hover:border-[#1d8fe1] hover:bg-gradient-to-b hover:from-white hover:to-[#f4faff] hover:shadow-[0_8px_30px_rgba(0,68,117,0.28),0_0_0_1px_rgba(29,143,225,0.25),0_0_20px_rgba(29,143,225,0.35)] md:p-8">
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(29,143,225,0.18)_0%,transparent_100%)] opacity-0 transition-opacity duration-[400ms] group-hover:opacity-100" />
+                  <div className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-[#004475] via-[#1d8fe1] to-[#cfe6f7] transition-transform duration-[500ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover:scale-x-100" />
+                  <h3 className="relative z-10 mb-3 text-xl font-bold text-[#004475]">{ind.name}</h3>
+                  <p className="relative z-10 text-sm font-medium leading-relaxed text-[#506478]">{ind.desc}</p>
+                </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Approach */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-6 md:px-10">
-          <div className="text-center">
-            <Tag>OUR PROCESS</Tag>
-            <h2 className="mt-4 text-3xl font-extrabold text-[#003366] md:text-4xl">
+      {/* Approach (white, like "How We Build AI Solutions") */}
+      <section className="px-4 py-14 md:px-8 md:py-16">
+        <div className="container-custom mx-auto max-w-3xl">
+          <ScrollReveal>
+            <h2 className="mb-12 text-center text-3xl font-bold text-[#004475] md:text-4xl lg:text-5xl">
               Our Custom ERP Development Approach
             </h2>
-          </div>
-          <div className="relative mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
-            <div className="absolute left-[10%] right-[10%] top-7 hidden h-0.5 bg-gray-200 lg:block" />
-            {approach.map((a, i) => (
-              <motion.div key={a.title} {...fadeUp(i)} className="relative flex flex-col items-center text-center">
-                <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full border-4 border-white bg-[#004475] text-xl font-extrabold text-white shadow-md">
-                  {i + 1}
+            <div className="relative space-y-12 before:absolute before:bottom-2 before:left-6 before:top-2 before:w-0.5 before:bg-blue-100">
+              {approach.map((a, i) => (
+                <div key={a.title} className="relative pl-16">
+                  <div className="absolute left-0 z-10 flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#004475] bg-white font-bold text-[#004475]">
+                    {i + 1}
+                  </div>
+                  <h3 className="mb-2 text-xl font-bold text-[#004475]">{a.title}</h3>
+                  <p className="text-gray-600">{a.desc}</p>
                 </div>
-                <h3 className="mt-4 text-lg font-bold text-[#003366]">{a.title}</h3>
-                <p className="mt-2 text-sm text-gray-600">{a.desc}</p>
-              </motion.div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* Why choose */}
-      <section className="bg-gradient-to-br from-[#003366] via-[#004475] to-[#0b5370] py-16 text-white md:py-24">
-        <div className="mx-auto max-w-5xl px-6 md:px-10">
-          <div className="text-center">
-            <span className="inline-block rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold tracking-widest text-[#7dd3fc]">
-              WHY LIVIK TECH
-            </span>
-            <h2 className="mt-4 text-3xl font-extrabold md:text-4xl">
-              Why Choose Livik Tech for Custom ERP Development?
+      {/* Why choose (light blue, like "Why Choose Livik") */}
+      <section className="bg-blue-50/40 px-4 py-14 md:px-8 md:py-16">
+        <div className="container-custom">
+          <ScrollReveal className="mb-12 text-center">
+            <h2 className="text-3xl font-bold leading-tight text-[#004475] md:text-4xl lg:text-5xl">
+              Why Choose{" "}
+              <span className="bg-gradient-to-r from-[#004475] to-[#1d8fe1] bg-clip-text text-transparent">
+                Livik Tech
+              </span>{" "}
+              for Custom ERP Development?
             </h2>
-          </div>
-          <div className="mt-12 grid gap-4 sm:grid-cols-2">
-            {whyChoose.map((w, i) => (
-              <motion.div
-                key={w}
-                {...fadeUp(i % 2)}
-                className="flex items-start gap-3 rounded-xl border border-white/15 bg-white/10 p-5 backdrop-blur-sm"
-              >
-                <CheckCircle2 className="mt-0.5 h-6 w-6 shrink-0 text-emerald-300" />
-                <p className="font-medium">{w}</p>
-              </motion.div>
-            ))}
-          </div>
-          <p className="mt-10 text-center text-lg font-semibold text-blue-100">
-            We focus on building practical software that fits your business operations.
-          </p>
+          </ScrollReveal>
+          <StaggerContainer>
+            <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {whyChoose.map((w) => (
+                <StaggerItem key={w}>
+                  <div className="wc-feature-card group flex h-full flex-col items-start rounded-2xl border border-gray-300 bg-white p-8 text-left shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                    <div className="wc-icon-tile mb-6">
+                      <CheckCircle2 size={24} />
+                    </div>
+                    <p className="wc-feature-title text-lg font-bold text-[#004475]">{w}</p>
+                  </div>
+                </StaggerItem>
+              ))}
+            </div>
+          </StaggerContainer>
+          <ScrollReveal>
+            <p className="mt-12 text-center text-xl font-medium italic text-gray-500">
+              We focus on building practical software that fits your business operations.
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="bg-[#f6f9fe] py-16 md:py-24">
+      {/* FAQ (white) */}
+      <section className="px-4 py-14 md:px-8 md:py-16">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -254,77 +248,71 @@ export default function CustomERPPage() {
             }),
           }}
         />
-        <div className="mx-auto max-w-4xl px-6 md:px-10">
-          <div className="text-center">
-            <Tag>FAQ</Tag>
-            <h2 className="mt-4 text-3xl font-extrabold text-[#003366] md:text-4xl">Frequently Asked Questions</h2>
-          </div>
-          <div className="mt-12 space-y-3">
+        <div className="container-custom mx-auto max-w-4xl">
+          <ScrollReveal className="mb-10 text-center">
+            <h2 className="text-3xl font-bold text-[#004475] md:text-4xl lg:text-5xl">Frequently Asked Questions</h2>
+          </ScrollReveal>
+          <div className="space-y-3">
             {faqs.map((f, i) => {
               const open = openFaq === i;
               return (
-                <div
-                  key={f.q}
-                  className={`rounded-xl border bg-white transition-shadow ${open ? "border-[#33a8d9] shadow-md" : "border-gray-200"}`}
-                >
-                  <h3>
-                    <button
-                      type="button"
-                      aria-expanded={open}
-                      onClick={() => setOpenFaq(open ? null : i)}
-                      className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
-                    >
-                      <span className="text-base font-semibold text-[#003366] md:text-lg">{f.q}</span>
-                      <ChevronDown
-                        className={`h-5 w-5 shrink-0 text-[#33a8d9] transition-transform duration-300 ${open ? "rotate-180" : ""}`}
-                      />
-                    </button>
-                  </h3>
-                  <AnimatePresence initial={false}>
-                    {open && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="overflow-hidden"
+                <ScrollReveal key={f.q} delay={i * 0.05}>
+                  <div className={`rounded-xl border bg-white transition-all duration-300 ${open ? "border-[#1d8fe1] shadow-md" : "border-gray-300"}`}>
+                    <h3>
+                      <button
+                        type="button"
+                        aria-expanded={open}
+                        onClick={() => setOpenFaq(open ? null : i)}
+                        className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
                       >
-                        <p className="px-5 pb-5 leading-relaxed text-gray-600">{f.a}</p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
+                        <span className="text-base font-bold text-[#004475] md:text-lg">{f.q}</span>
+                        <ChevronDown className={`h-5 w-5 shrink-0 text-[#1d8fe1] transition-transform duration-300 ${open ? "rotate-180" : ""}`} />
+                      </button>
+                    </h3>
+                    <AnimatePresence initial={false}>
+                      {open && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="overflow-hidden"
+                        >
+                          <p className="px-5 pb-5 text-sm font-medium leading-relaxed text-[#506478]">{f.a}</p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </ScrollReveal>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#003366] via-[#004475] to-[#0b5370] px-4 py-16 text-center text-white md:px-8 md:py-20">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]" />
-        <motion.div {...fadeUp()} className="relative z-10 mx-auto max-w-3xl">
-          <h2 className="text-3xl font-extrabold leading-tight sm:text-4xl md:text-5xl">
-            Looking for an ERP That Fits Your Business?
-          </h2>
-          <div className="mx-auto mt-6 max-w-2xl space-y-3 text-base font-medium text-blue-100 sm:text-lg">
-            <p>
-              Let&apos;s discuss your business processes and identify the right ERP solution for your requirements.
-            </p>
-            <p>
-              Whether you need a completely new ERP or want to improve an existing business system, Livik Tech can help
-              you plan and develop the solution.
-            </p>
-          </div>
-          <div className="mt-8 flex justify-center">
-            <Link
-              href="/contact?service=Custom%20ERP%20Solutions"
-              className="inline-flex h-14 items-center gap-2 rounded-xl bg-white px-8 font-extrabold text-[#003366] shadow-xl transition-all hover:scale-105 hover:bg-blue-50"
-            >
-              Talk to Our ERP Development Team <ArrowRight size={18} />
-            </Link>
-          </div>
-        </motion.div>
+      {/* CTA (gradient, like AI page footer CTA) */}
+      <section className="gradient-hero px-4 py-10 text-white md:px-8 md:py-12">
+        <div className="container-custom text-center">
+          <ScrollReveal>
+            <h2 className="text-3xl font-bold leading-tight md:text-5xl">
+              Looking for an ERP That Fits Your Business?
+            </h2>
+            <div className="mx-auto mb-10 mt-6 max-w-2xl space-y-3 text-xl leading-relaxed opacity-90">
+              <p>
+                Let&apos;s discuss your business processes and identify the right ERP solution for your requirements.
+              </p>
+              <p>
+                Whether you need a completely new ERP or want to improve an existing business system, Livik Tech can
+                help you plan and develop the solution.
+              </p>
+            </div>
+            <Button size="lg" variant="secondary" className="h-14 rounded-xl px-10 font-bold shadow-xl shadow-blue-900/20 transition-all active:scale-95" asChild>
+              <Link href="/contact?service=Custom%20ERP%20Solutions">
+                Talk to Our ERP Development Team <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+          </ScrollReveal>
+        </div>
       </section>
     </main>
   );

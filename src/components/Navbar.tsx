@@ -207,7 +207,6 @@ const solutionsMenu = [
 // Nav items configuration
 const navItems = [
   { id: "services", label: "SERVICES", href: "#", hasDropdown: true },
-  { id: "solutions", label: "SOLUTIONS", href: "#", hasDropdown: true },
   { id: "industries", label: "INDUSTRIES", href: "#", hasDropdown: true },
   { id: "about", label: "ABOUT US", href: "/about", hasDropdown: false },
   { id: "careers", label: "CAREERS", href: "/careers", hasDropdown: false },

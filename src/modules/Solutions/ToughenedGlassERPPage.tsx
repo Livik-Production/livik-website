@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, CheckCircle2, FileWarning, ScanBarcode, Layers, Unplug, Sparkles, Upload, FilePlus2, Scissors, Cog, Drill, Droplets, Flame, Activity, ShoppingCart, Factory, Boxes, Receipt, ShieldCheck, BarChart3, BookOpenCheck, MessageCircle, Smartphone, Users, Target, Eye, TrendingUp, Building2, Warehouse, Store, ChevronDown } from "lucide-react";
+import { ArrowRight, CheckCircle2, FileWarning, ScanBarcode, Layers, Unplug, Sparkles, Upload, FilePlus2, Scissors, Cog, Drill, Droplets, Flame, Activity, ShoppingCart, Factory, Boxes, Receipt, ShieldCheck, BarChart3, BookOpenCheck, MessageCircle, Smartphone, Users, Target, Eye, TrendingUp, Building2, Warehouse, Store, ChevronDown, AlertTriangle } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/ui/scroll-reveal";
+import "../Services/WhyChoose.css";
 
 const highlights = [
   "AI order processing from handwritten orders",
@@ -107,7 +109,7 @@ export default function ToughenedGlassERPPage() {
           height={725}
           priority
           sizes="100vw"
-          className="w-full h-auto min-h-[520px] object-cover object-right lg:min-h-0 lg:h-[630px] lg:w-[90%] lg:ml-auto lg:[mask-image:linear-gradient(to_right,transparent,black_10%)]"
+          className="w-full h-auto min-h-[520px] object-cover object-right lg:min-h-0 lg:h-[617px] lg:w-[90%] lg:ml-auto lg:[mask-image:linear-gradient(to_right,transparent,black_10%)]"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/60 to-transparent lg:from-transparent lg:via-transparent" />
 
@@ -150,60 +152,82 @@ export default function ToughenedGlassERPPage() {
           </div>
         </div>
       </section>
-      <section className="bg-white py-16 md:py-24">
+      <section className="bg-white py-10 md:py-10">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#003366]">
-              Your Glass Factory Deserves More Than Manual Management.
+          <ScrollReveal className="mx-auto max-w-3xl text-center">
+            <h2 className="mt-4 text-3xl md:text-4xl font-extrabold leading-tight tracking-tight text-[#0b2545]">
+              Your Glass Factory Deserves More Than
+              <span className="relative mt-1 block text-[#2563eb]">
+                Manual Management.
+                <svg className="mx-auto mt-1 h-3 w-48 md:w-64" viewBox="0 0 260 12" fill="none" aria-hidden="true">
+                  <path d="M3 8 C 60 2, 150 2, 257 6" stroke="#2563eb" strokeWidth="3" strokeLinecap="round" />
+                </svg>
+              </span>
             </h2>
-          </div>
+          </ScrollReveal>
 
-          <div className="mt-14 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-            <div>
-              <h3 className="text-2xl font-bold text-[#003366]">Common Challenges</h3>
-              <div className="mt-6 space-y-4">
+          <div className="mx-auto mt-10 grid max-w-5xl items-stretch gap-6 lg:grid-cols-[1.1fr_auto_1fr] lg:gap-3">
+            <div className="rounded-3xl border border-gray-400 bg-gradient-to-b from-white to-[#f3f8fe] p-5 shadow-[0_10px_40px_-12px_rgba(0,68,117,0.18)] md:p-5">
+              <div className="inline-flex items-center gap-2 rounded-2xl bg-[#dcebfb] px-4 py-2 shadow-sm">
+                <AlertTriangle className="h-5 w-5 text-[#004475]" />
+                <h3 className="text-xl font-bold text-[#004475]">Common Challenges</h3>
+              </div>
+              <div className="mt-4 space-y-2.5">
                 {challenges.map((c) => (
-                  <div key={c.title} className="flex gap-4 rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
-                    <c.icon className="mt-1 h-6 w-6 shrink-0 text-red-500" />
+                  <div key={c.title} className="flex items-center gap-4 rounded-xl border border-gray-300 bg-white/80 px-4 py-3.5 shadow-sm">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-red-50">
+                      <c.icon className="h-5 w-5 text-red-500" />
+                    </div>
                     <div>
-                      <h4 className="text-lg font-semibold text-[#003366]">{c.title}</h4>
-                      <p className="mt-1 text-gray-600">{c.desc}</p>
+                      <h4 className="text-[15px] font-bold text-[#0b2545]">{c.title}</h4>
+                      <p className="mt-0.5 text-[13px] text-gray-600">{c.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="rounded-xl bg-gradient-to-r from-[#3b74ec] to-[#3155b8] p-8 md:p-10 text-white">
-              <h3 className="text-2xl md:text-3xl font-bold">Our Solution</h3>
-              <ul className="mt-6 space-y-4">
-                {challenges.map((c) => (
-                  <li key={c.solution} className="flex items-center gap-3 text-lg">
-                    <CheckCircle2 className="h-6 w-6 shrink-0 text-emerald-300" />
-                    {c.solution}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/contact?service=Glass%20Manufacturing%20ERP"
-                className="mt-8 inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 font-semibold text-[#2c4fb3] transition hover:bg-gray-100"
-              >
-                Schedule Demo <ArrowRight size={18} />
-              </Link>
+            <div className="hidden items-center justify-center lg:flex">
+              <svg viewBox="0 0 64 56" className="h-12 w-9 drop-shadow-[0_6px_10px_rgba(37,99,235,0.3)]" fill="none" aria-hidden="true">
+                <path d="M8 8 L28 28 L8 48" stroke="#7fb6f5" strokeWidth="13" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M34 8 L54 28 L34 48" stroke="#2f6df0" strokeWidth="13" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+
+            <div className="relative flex flex-col justify-center overflow-hidden rounded-3xl bg-gradient-to-br from-[#1e5fe0] via-[#2563eb] to-[#1d4ed8] p-6 text-white shadow-[0_20px_50px_-15px_rgba(37,99,235,0.6)] md:p-8">
+              <div className="pointer-events-none absolute -bottom-10 -right-16 h-64 w-64 rotate-[-12deg] rounded-3xl bg-gradient-to-br from-white/30 to-cyan-200/10 blur-[1px]" />
+              <div className="pointer-events-none absolute -bottom-2 -right-8 h-48 w-56 rotate-[-12deg] rounded-3xl border border-white/30 bg-white/15" />
+              <div className="relative">
+                <div className="flex items-center gap-3">
+                  <Target className="h-7 w-7" />
+                  <h3 className="text-xl font-bold md:text-2xl">Our Solution</h3>
+                </div>
+                <ul className="mt-5 space-y-3">
+                  {challenges.map((c) => (
+                    <li key={c.solution} className="flex items-center gap-3 text-base">
+                      <CheckCircle2 className="h-6 w-6 shrink-0 fill-emerald-400 text-white" />
+                      {c.solution}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/contact?service=Glass%20Manufacturing%20ERP"
+                  className="mt-6 inline-flex items-center gap-2 rounded-xl bg-white px-5 py-2.5 font-semibold text-[#1d4ed8] shadow-md transition hover:bg-gray-100"
+                >
+                  Schedule Demo <ArrowRight size={18} />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
-      <section className="bg-[#f6f9fe] py-16 md:py-24">
+      <section className="bg-slate-200 py-14 md:py-16">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-block rounded-full bg-[#004475]/10 px-4 py-1.5 text-xs font-bold tracking-widest text-[#004475]">
-              AI-POWERED CAPABILITIES
-            </span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-[#003366]">
+          <ScrollReveal className="mx-auto max-w-3xl text-center">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#004475]">
               Turn Handwritten Glass Orders into Digital Workflows.
             </h2>
-          </div>
+          </ScrollReveal>
 
           {/* Workflow steps */}
           <div className="mx-auto mt-12 flex max-w-3xl items-start justify-between">
@@ -213,11 +237,11 @@ export default function ToughenedGlassERPPage() {
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#004475] text-white shadow-md">
                     <s.icon size={22} />
                   </div>
-                  <p className="mt-2 text-sm font-bold text-[#003366]">{s.title}</p>
+                  <p className="mt-2 text-sm font-bold text-[#004475]">{s.title}</p>
                   <p className="text-xs text-gray-500">{s.sub}</p>
                 </div>
                 {i < workflowSteps.length - 1 && (
-                  <div className="mx-3 mb-8 h-0.5 flex-1 bg-gradient-to-r from-[#004475] to-[#33a8d9]/40" />
+                  <div className="mx-3 mb-8 h-0.5 flex-1 bg-gradient-to-r from-[#004475] to-[#1d8fe1]/40" />
                 )}
               </div>
             ))}
@@ -227,8 +251,8 @@ export default function ToughenedGlassERPPage() {
           <div className="mt-12 grid items-stretch gap-6 rounded-3xl bg-white p-4 shadow-xl md:p-6 lg:grid-cols-[1fr_auto_1fr]">
             {/* Left: handwritten sheet with scan */}
             <div className="relative overflow-hidden rounded-2xl bg-gray-100 p-6 md:p-8">
-              <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-lg bg-white px-3 py-1.5 text-xs font-semibold text-[#003366] shadow">
-                <span className="h-2 w-2 animate-pulse rounded-full bg-[#33a8d9]" />
+              <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-lg bg-white px-3 py-1.5 text-xs font-semibold text-[#004475] shadow">
+                <span className="h-2 w-2 animate-pulse rounded-full bg-[#1d8fe1]" />
                 Scanning...
               </span>
               <div className="relative mx-auto mt-8 max-w-sm overflow-hidden rounded-md bg-white p-6 shadow-lg">
@@ -244,7 +268,7 @@ export default function ToughenedGlassERPPage() {
                   ))}
                 </ul>
                 <motion.div
-                  className="absolute inset-x-0 h-14 bg-gradient-to-b from-transparent via-[#33a8d9]/35 to-transparent border-b-2 border-[#33a8d9]"
+                  className="absolute inset-x-0 h-14 bg-gradient-to-b from-transparent via-[#1d8fe1]/35 to-transparent border-b-2 border-[#1d8fe1]"
                   initial={{ top: "-20%" }}
                   animate={{ top: ["-20%", "100%"] }}
                   transition={{ duration: 2.6, repeat: Infinity, ease: "linear" }}
@@ -254,23 +278,23 @@ export default function ToughenedGlassERPPage() {
 
             {/* Center: AI */}
             <div className="flex flex-row items-center justify-center gap-3 lg:flex-col">
-              <div className="hidden h-full w-px bg-gradient-to-b from-transparent via-[#33a8d9] to-transparent lg:block" />
+              <div className="hidden h-full w-px bg-gradient-to-b from-transparent via-[#1d8fe1] to-transparent lg:block" />
               <motion.div
                 animate={{ scale: [1, 1.12, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#33a8d9] to-[#004475] text-white shadow-lg"
+                className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#1d8fe1] to-[#004475] text-white shadow-lg"
               >
                 <Sparkles size={28} />
               </motion.div>
               <span className="text-xs font-bold tracking-widest text-[#004475]">AI EXTRACT</span>
-              <ArrowRight className="text-[#33a8d9] lg:rotate-90" />
-              <div className="hidden h-full w-px bg-gradient-to-b from-transparent via-[#33a8d9] to-transparent lg:block" />
+              <ArrowRight className="text-[#1d8fe1] lg:rotate-90" />
+              <div className="hidden h-full w-px bg-gradient-to-b from-transparent via-[#1d8fe1] to-transparent lg:block" />
             </div>
 
             {/* Right: extracted digital order */}
             <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
               <div className="flex items-center justify-between">
-                <h3 className="text-xl font-bold text-[#003366]">Digital Order</h3>
+                <h3 className="text-xl font-bold text-[#004475]">Digital Order</h3>
                 <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-600">
                   Created
                 </span>
@@ -287,10 +311,10 @@ export default function ToughenedGlassERPPage() {
                   >
                     <div>
                       <p className="text-xs text-gray-500">Item {i + 1} · Toughened glass</p>
-                      <p className="font-semibold text-[#003366]">{r.dims}</p>
+                      <p className="font-semibold text-[#004475]">{r.dims}</p>
                     </div>
                     <div className="flex items-center gap-3">
-                      <span className="text-sm font-medium text-gray-600">{r.thick} thick</span>
+                      <span className="text-sm font-medium text-gray-600">{r.thick}</span>
                       <CheckCircle2 className="h-5 w-5 text-emerald-500" />
                     </div>
                   </motion.div>
@@ -300,16 +324,13 @@ export default function ToughenedGlassERPPage() {
           </div>
         </div>
       </section>
-      <section className="bg-white py-16 md:py-24">
+      <section className="bg-white py-14 md:py-16">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-block rounded-full bg-[#004475]/10 px-4 py-1.5 text-xs font-bold tracking-widest text-[#004475]">
-              PRODUCTION TRACKING
-            </span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-[#003366]">
+          <ScrollReveal className="mx-auto max-w-3xl text-center">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#004475]">
               Every Glass Piece. Every Stage. Complete Visibility.
             </h2>
-          </div>
+          </ScrollReveal>
 
           {/* Horizontal timeline */}
           <div className="relative mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
@@ -335,11 +356,11 @@ export default function ToughenedGlassERPPage() {
                   <s.icon size={24} />
                 </div>
                 <p className="mt-4 text-xs font-bold tracking-widest text-gray-400">STEP {i + 1}</p>
-                <h3 className="mt-1 text-lg font-bold text-[#003366]">{s.name}</h3>
-                <p className="mt-1 text-2xl font-extrabold text-[#33a8d9]">{s.pct}%</p>
+                <h3 className="mt-1 text-lg font-bold text-[#004475]">{s.name}</h3>
+                <p className="mt-1 text-2xl font-extrabold text-[#1d8fe1]">{s.pct}%</p>
                 <div className="mt-3 h-2 w-full max-w-[160px] overflow-hidden rounded-full bg-gray-100">
                   <motion.div
-                    className={`h-full rounded-full ${s.pct === 100 ? "bg-emerald-500" : "bg-[#33a8d9]"}`}
+                    className={`h-full rounded-full ${s.pct === 100 ? "bg-emerald-500" : "bg-[#1d8fe1]"}`}
                     initial={{ width: 0 }}
                     whileInView={{ width: `${s.pct}%` }}
                     viewport={{ once: true }}
@@ -356,12 +377,12 @@ export default function ToughenedGlassERPPage() {
           {/* Supporting features */}
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {trackingFeatures.map((f) => (
-              <div key={f.title} className="flex gap-5 rounded-2xl border border-gray-200 bg-[#f6f9fe] p-6">
+              <div key={f.title} className="flex gap-5 rounded-2xl border border-gray-300 bg-white p-6 shadow-[0_4px_20px_rgba(0,68,117,0.06)] transition-all duration-[450ms] hover:-translate-y-[8px] hover:border-[#1d8fe1]">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#004475] text-white">
                   <f.icon size={24} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-[#003366]">{f.title}</h3>
+                  <h3 className="text-xl font-bold text-[#004475]">{f.title}</h3>
                   <p className="mt-1 text-gray-600">{f.desc}</p>
                 </div>
               </div>
@@ -369,47 +390,53 @@ export default function ToughenedGlassERPPage() {
           </div>
         </div>
       </section>
-      <section className="bg-[#f6f9fe] py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-6 md:px-10">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-block rounded-full bg-[#004475]/10 px-4 py-1.5 text-xs font-bold tracking-widest text-[#004475]">
-              COMPLETE ERP FEATURES
-            </span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-[#003366]">
-              Everything Your Glass Factory Needs, in One ERP
+      <section className="py-14 md:py-14 px-4 md:px-8 relative overflow-hidden bg-[#004475] text-white">
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: "radial-gradient(#ffffff 0.5px, transparent 0.5px)",
+            backgroundSize: "24px 24px",
+          }}
+        />
+        <div className="container-custom relative z-10">
+          <ScrollReveal className="text-center mb-10 md:mb-16">
+            <h2 className="text-center heading-section text-white flex items-center justify-center flex-wrap gap-2">
+              Everything Your Glass Factory Needs, in One{" "}
+              <span className="relative px-7 py-2.5 inline-flex items-center justify-center group overflow-hidden rounded-2xl">
+                <span className="absolute inset-0 bg-gradient-to-br from-[#004475]/40 via-[#1d8fe1]/20 to-white/10 backdrop-blur-xl border border-white/30 rounded-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.4)]" />
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite]" />
+                <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-br from-[#004475] via-white to-[#1d8fe1] bg-[length:200%_200%] animate-[gradShift_4s_linear_infinite] font-black tracking-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
+                  ERP
+                </span>
+                <span className="absolute inset-0 rounded-2xl shadow-[inset_0_0_20px_rgba(255,255,255,0.1)] pointer-events-none" />
+              </span>
             </h2>
-          </div>
+          </ScrollReveal>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-2">
-            {erpFeatureGroups.map((g, i) => (
-              <motion.div
-                key={g.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.08 * i, duration: 0.4 }}
-                className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
-              >
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#004475] text-white">
-                  <g.icon size={22} />
-                </div>
-                <h3 className="mt-4 text-xl font-bold text-[#003366]">{g.title}</h3>
-                <p className="mt-2 text-gray-600">{g.desc}</p>
-              </motion.div>
-            ))}
-          </div>
+          <StaggerContainer>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {erpFeatureGroups.map((g) => (
+                <StaggerItem key={g.title}>
+                  <div className="group h-full flex flex-col rounded-2xl bg-white p-6 md:p-8 border border-gray-300 transition-all duration-[450ms] hover:-translate-y-[10px] hover:border-[#1d8fe1] shadow-[0_4px_20px_rgba(0,68,117,0.06)]">
+                    <div className="wc-icon-tile mb-6">
+                      <g.icon size={26} />
+                    </div>
+                    <h3 className="text-xl font-bold text-[#004475] mb-4">{g.title}</h3>
+                    <p className="text-sm font-medium text-[#506478] leading-relaxed">{g.desc}</p>
+                  </div>
+                </StaggerItem>
+              ))}
+            </div>
+          </StaggerContainer>
         </div>
       </section>
-      <section className="bg-white py-16 md:py-24 overflow-hidden">
+      <section className="bg-blue-50/40 py-14 md:py-16 overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-block rounded-full bg-[#004475]/10 px-4 py-1.5 text-xs font-bold tracking-widest text-[#004475]">
-              INTEGRATIONS &amp; MOBILE ACCESS
-            </span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-[#003366]">
+          <ScrollReveal className="mx-auto max-w-3xl text-center">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#004475]">
               Connected to the Tools You Already Use
             </h2>
-          </div>
+          </ScrollReveal>
 
           <div className="mt-14 grid items-center gap-8 lg:grid-cols-[1fr_220px_1fr] lg:gap-0">
             {/* Left blocks */}
@@ -427,7 +454,7 @@ export default function ToughenedGlassERPPage() {
                     <div className={`flex h-12 w-12 items-center justify-center rounded-xl text-white ${b.color}`}>
                       <b.icon size={24} />
                     </div>
-                    <h3 className="text-xl font-bold text-[#003366]">{b.title}</h3>
+                    <h3 className="text-xl font-bold text-[#004475]">{b.title}</h3>
                   </div>
                   <p className="mt-4 text-gray-600">{b.desc}</p>
                 </motion.div>
@@ -451,7 +478,7 @@ export default function ToughenedGlassERPPage() {
                     <path d={d} stroke="#cfe3f3" strokeWidth="2" vectorEffect="non-scaling-stroke" />
                     <motion.path
                       d={d}
-                      stroke="#33a8d9"
+                      stroke="#1d8fe1"
                       strokeWidth="2"
                       strokeDasharray="6 10"
                       vectorEffect="non-scaling-stroke"
@@ -465,7 +492,7 @@ export default function ToughenedGlassERPPage() {
                 {[1, 2].map((r) => (
                   <motion.span
                     key={r}
-                    className="absolute inset-0 rounded-3xl border-2 border-[#33a8d9]/40"
+                    className="absolute inset-0 rounded-3xl border-2 border-[#1d8fe1]/40"
                     animate={{ scale: [1, 1.6 + r * 0.3], opacity: [0.6, 0] }}
                     transition={{ duration: 2.4, repeat: Infinity, delay: r * 0.8 }}
                   />
@@ -494,13 +521,13 @@ export default function ToughenedGlassERPPage() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#004475] text-white">
                   <Smartphone size={24} />
                 </div>
-                <h3 className="text-xl font-bold text-[#003366]">Mobile ERP</h3>
+                <h3 className="text-xl font-bold text-[#004475]">Mobile ERP</h3>
               </div>
-              <div className="mt-5 space-y-3">
+              <div className="mt-4 space-y-2.5">
                 {mobileAccess.map((m) => (
                   <div key={m.name} className="flex items-center gap-3 rounded-lg bg-[#f6f9fe] px-4 py-3">
-                    <m.icon className="h-5 w-5 text-[#33a8d9]" />
-                    <span className="font-semibold text-[#003366]">{m.name}</span>
+                    <m.icon className="h-5 w-5 text-[#1d8fe1]" />
+                    <span className="font-semibold text-[#004475]">{m.name}</span>
                     <span className="ml-auto text-sm text-gray-500">access</span>
                   </div>
                 ))}
@@ -509,16 +536,13 @@ export default function ToughenedGlassERPPage() {
           </div>
         </div>
       </section>
-      <section className="bg-gradient-to-b from-[#f6f9fe] to-white py-16 md:py-24">
+      <section className="bg-white py-14 md:py-16">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-block rounded-full bg-[#004475]/10 px-4 py-1.5 text-xs font-bold tracking-widest text-[#004475]">
-              WHY LIVIK TECH
-            </span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-[#003366]">
-              Technology That Understands Your <span className="text-[#33a8d9]">Manufacturing</span> Business.
+          <ScrollReveal className="mx-auto max-w-3xl text-center">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#004475]">
+              Technology That Understands Your <span className="text-[#1d8fe1]">Manufacturing</span> Business.
             </h2>
-          </div>
+          </ScrollReveal>
 
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {whyLivik.map((w, i) => (
@@ -528,27 +552,24 @@ export default function ToughenedGlassERPPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 * i, duration: 0.45 }}
-                className="group rounded-2xl border border-gray-200 bg-white p-7 text-center shadow-sm transition hover:-translate-y-1 hover:border-[#33a8d9] hover:shadow-lg"
+                className="wc-feature-card group rounded-2xl border border-gray-300 bg-white p-7 text-center shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-[#1d8fe1] hover:shadow-xl"
               >
-                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#004475] text-white transition group-hover:bg-[#33a8d9]">
+                <div className="wc-icon-tile mx-auto">
                   <w.icon size={26} />
                 </div>
-                <h3 className="mt-5 text-lg font-bold text-[#003366]">{w.title}</h3>
+                <h3 className="mt-5 text-lg font-bold text-[#004475]">{w.title}</h3>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
-      <section className="bg-white py-16 md:py-24">
+      <section className="bg-slate-200 py-14 md:py-16">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-block rounded-full bg-[#004475]/10 px-4 py-1.5 text-xs font-bold tracking-widest text-[#004475]">
-              INDUSTRIES SERVED
-            </span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-[#003366]">
+          <ScrollReveal className="mx-auto max-w-3xl text-center">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#004475]">
               Built for Every Kind of Glass Business
             </h2>
-          </div>
+          </ScrollReveal>
 
           <div className="mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 lg:grid lg:grid-cols-5 lg:overflow-visible lg:pb-0">
             {servedIndustries.map((s, i) => (
@@ -558,18 +579,18 @@ export default function ToughenedGlassERPPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.08 * i, duration: 0.45 }}
-                className="group min-w-[220px] shrink-0 snap-start rounded-2xl border border-gray-200 bg-[#f6f9fe] p-6 transition hover:-translate-y-1 hover:border-[#33a8d9] hover:bg-white hover:shadow-lg lg:min-w-0"
+                className="group min-w-[220px] shrink-0 snap-start rounded-2xl border border-gray-300 bg-white p-6 shadow-[0_4px_20px_rgba(0,68,117,0.06)] transition-all duration-[450ms] hover:-translate-y-[10px] hover:border-[#1d8fe1] hover:shadow-[0_8px_30px_rgba(0,68,117,0.28),0_0_20px_rgba(29,143,225,0.35)] lg:min-w-0"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#004475] text-white transition group-hover:bg-[#33a8d9]">
+                <div className="wc-icon-tile">
                   <s.icon size={24} />
                 </div>
-                <h3 className="mt-5 text-lg font-bold leading-snug text-[#003366]">{s.name}</h3>
+                <h3 className="mt-5 text-lg font-bold leading-snug text-[#004475]">{s.name}</h3>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
-      <section className="bg-[#f6f9fe] py-16 md:py-24">
+      <section className="bg-white py-14 md:py-16">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -586,10 +607,7 @@ export default function ToughenedGlassERPPage() {
         />
         <div className="mx-auto max-w-4xl px-6 md:px-10">
           <div className="text-center">
-            <span className="inline-block rounded-full bg-[#004475]/10 px-4 py-1.5 text-xs font-bold tracking-widest text-[#004475]">
-              FAQ
-            </span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-[#003366]">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#004475]">
               Frequently Asked Questions – Glass ERP Software
             </h2>
           </div>
@@ -600,7 +618,7 @@ export default function ToughenedGlassERPPage() {
               return (
                 <div
                   key={f.q}
-                  className={`rounded-xl border bg-white transition-shadow ${open ? "border-[#33a8d9] shadow-md" : "border-gray-200"}`}
+                  className={`rounded-xl border bg-white transition-shadow ${open ? "border-[#1d8fe1] shadow-md" : "border-gray-300"}`}
                 >
                   <h3>
                     <button
@@ -609,11 +627,11 @@ export default function ToughenedGlassERPPage() {
                       onClick={() => setOpenFaq(open ? null : i)}
                       className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
                     >
-                      <span className="text-base md:text-lg font-semibold text-[#003366]">
+                      <span className="text-base md:text-lg font-semibold text-[#004475]">
                         {i + 1}. {f.q}
                       </span>
                       <ChevronDown
-                        className={`h-5 w-5 shrink-0 text-[#33a8d9] transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+                        className={`h-5 w-5 shrink-0 text-[#1d8fe1] transition-transform duration-300 ${open ? "rotate-180" : ""}`}
                       />
                     </button>
                   </h3>
@@ -668,7 +686,7 @@ export default function ToughenedGlassERPPage() {
           <div className="mt-8 flex justify-center">
             <Link
               href="/contact?service=Glass%20Manufacturing%20ERP"
-              className="inline-flex h-14 items-center gap-2 rounded-xl bg-white px-8 font-extrabold text-[#003366] shadow-xl transition-all hover:scale-105 hover:bg-blue-50"
+              className="inline-flex h-14 items-center gap-2 rounded-xl bg-white px-8 font-extrabold text-[#004475] shadow-xl transition-all hover:scale-105 hover:bg-blue-50"
             >
               Book Your Glass ERP Demo Today <ArrowRight size={18} />
             </Link>
