@@ -4,9 +4,15 @@ import Image from "next/image";
 import { Fragment, useEffect, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import {
+  Barcode,
   Check,
+  ChevronRight,
   ClipboardList,
+  EllipsisVertical,
+  FileText,
+  GitBranch,
   Loader2,
+  Printer,
   RotateCcw,
   Trash2,
   Upload,
@@ -305,6 +311,275 @@ const TRACK_STAGES = [
   { name: "Washing", note: "Washed and inspected", time: "11:48 AM" },
   { name: "Tempering", note: "Toughened in the furnace", time: "12:20 PM" },
 ];
+
+// ---- Work Orders list, drawn over the screenshot so rows can be added and the dropdown can sit under any row ----
+const WO_W = 1919; // screenshot canvas
+const WO_H = 945;
+const WO_X0 = 262; // table body left / width / first row top / row height (canvas px)
+const WO_BW = 1648;
+const WO_Y0 = 349;
+const WO_ROW = 60;
+const wx = (x: number) => `${(x / WO_W) * 100}%`;
+const wy = (y: number) => `${(y / WO_H) * 100}%`;
+const cx = (x: number) => `${((x - WO_X0) / WO_BW) * 100}%`; // x inside a row
+const cw = (w: number) => `${(w / WO_BW) * 100}%`;
+
+type WoOrder = {
+  wo: string;
+  pi: string;
+  bk: string;
+  party: string;
+  date: string;
+  stages: string;
+  pct: number;
+  products: number;
+  qty: number;
+  sqm: string;
+};
+// ORDERS[0] is the order that gets created; the others are already in the list.
+const ORDERS: WoOrder[] = [
+  {
+    wo: "WO-20261119-115",
+    pi: "PI-20261119-121",
+    bk: "ORD-20261119-141",
+    party: "Sunrise Interiors",
+    date: "19/11/2026",
+    stages: "0/5",
+    pct: 0,
+    products: 3,
+    qty: 12,
+    sqm: "8.4",
+  },
+  {
+    wo: "WO-20261118-114",
+    pi: "PI-20261118-120",
+    bk: "ORD-20261118-140",
+    party: "XYZ Solutions",
+    date: "18/11/2026",
+    stages: "5/5",
+    pct: 100,
+    products: 2,
+    qty: 16,
+    sqm: "10.9",
+  },
+  {
+    wo: "WO-20261118-113",
+    pi: "PI-20261118-119",
+    bk: "ORD-20261118-139",
+    party: "Metro Glazing",
+    date: "18/11/2026",
+    stages: "5/5",
+    pct: 100,
+    products: 4,
+    qty: 24,
+    sqm: "17.2",
+  },
+  {
+    wo: "WO-20261117-112",
+    pi: "PI-20261117-118",
+    bk: "ORD-20261117-138",
+    party: "Skyline Interiors",
+    date: "17/11/2026",
+    stages: "5/5",
+    pct: 100,
+    products: 1,
+    qty: 6,
+    sqm: "4.1",
+  },
+];
+
+function OrderCells({ o }: { o: WoOrder }) {
+  const chip =
+    "absolute top-1/2 flex h-[46%] -translate-y-1/2 items-center justify-center rounded-[3px] border border-cyan-200 bg-cyan-50 text-[0.72cqw] font-semibold text-cyan-900";
+  const txt =
+    "absolute top-1/2 -translate-y-1/2 whitespace-nowrap text-[0.74cqw] font-medium text-slate-800";
+  return (
+    <>
+      <span className={chip} style={{ left: cx(280), width: cw(138) }}>
+        {o.wo}
+      </span>
+      <span className={chip} style={{ left: cx(463), width: cw(127) }}>
+        {o.pi}
+      </span>
+      <span className={chip} style={{ left: cx(616), width: cw(142) }}>
+        {o.bk}
+      </span>
+      <span className={txt} style={{ left: cx(785) }}>
+        {o.party}
+      </span>
+      <span className={txt} style={{ left: cx(970) }}>
+        {o.date}
+      </span>
+      {/* progress pill */}
+      <span
+        className="absolute top-1/2 flex h-[58%] -translate-y-1/2 flex-col justify-center gap-[2px] rounded-md border border-cyan-200 bg-cyan-50/60 px-[0.45cqw]"
+        style={{ left: cx(1120), width: cw(144) }}
+      >
+        <span className="flex items-center justify-between text-[0.5cqw] font-medium text-slate-600">
+          <span>{o.stages} stages</span>
+          <span className="flex items-center">
+            {o.pct}% <ChevronRight className="h-[0.7cqw] w-[0.7cqw]" />
+          </span>
+        </span>
+        <span className="block h-[0.35cqw] overflow-hidden rounded-full bg-slate-200">
+          <span
+            className="block h-full rounded-full bg-emerald-500"
+            style={{ width: `${o.pct}%` }}
+          />
+        </span>
+      </span>
+      <span className={txt + " -translate-x-1/2"} style={{ left: cx(1405) }}>
+        {o.products}
+      </span>
+      <span className={txt + " -translate-x-1/2"} style={{ left: cx(1552) }}>
+        {o.qty}
+      </span>
+      <span className={txt} style={{ left: cx(1592) }}>
+        {o.sqm}
+      </span>
+      <span className={txt + " text-slate-300"} style={{ left: cx(1741) }}>
+        —
+      </span>
+      {/* actions: document + kebab */}
+      <span
+        className="absolute top-1/2 flex h-[50%] -translate-y-1/2 items-center justify-center rounded-md border border-purple-100 bg-purple-50 text-purple-600"
+        style={{ left: cx(1824), width: cw(31) }}
+      >
+        <FileText className="h-[55%] w-[55%]" />
+      </span>
+      <span
+        className="absolute top-1/2 flex h-[50%] -translate-y-1/2 items-center justify-center rounded-md border border-slate-200 bg-white text-slate-700"
+        style={{ left: cx(1862), width: cw(31) }}
+      >
+        <EllipsisVertical className="h-[60%] w-[60%]" />
+      </span>
+    </>
+  );
+}
+
+function OrdersTable({ step }: { step: number }) {
+  const rowBase = "absolute border-b border-slate-200 bg-white";
+  const rowBox = { left: wx(WO_X0), width: wx(WO_BW), height: wy(WO_ROW) };
+  return (
+    <>
+      {/* covers the screenshot's own row and baked-in dropdown */}
+      <div
+        aria-hidden
+        className="absolute bg-white"
+        style={{
+          left: wx(WO_X0),
+          width: wx(WO_BW),
+          top: wy(WO_Y0),
+          height: wy(872 - WO_Y0),
+        }}
+      />
+
+      {/* orders that already exist: they slide down one slot when the new order is added */}
+      {ORDERS.slice(1).map((o, k) => {
+        const i = k + 1;
+        const slot = step >= 14 ? i : i - 1;
+        return (
+          <motion.div
+            key={o.wo}
+            className={rowBase}
+            style={rowBox}
+            initial={{ top: wy(WO_Y0 + (i - 1) * WO_ROW) }}
+            animate={{ top: wy(WO_Y0 + slot * WO_ROW) }}
+            transition={{
+              duration: step === 14 ? 0.6 : 0,
+              delay: step === 14 ? 1 : 0,
+              ease,
+            }}
+          >
+            <OrderCells o={o} />
+          </motion.div>
+        );
+      })}
+
+      {/* loading row while the work order is being created */}
+      <motion.div
+        aria-hidden
+        className={rowBase + " flex items-center gap-[1%] px-[1.8%]"}
+        style={{ ...rowBox, top: wy(WO_Y0) }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: step === 14 ? 1 : 0 }}
+        transition={{
+          duration: step === 14 ? 0.4 : 0.3,
+          delay: step === 14 ? 1.3 : 0,
+        }}
+      >
+        <Loader2 className="h-[38%] w-[2%] shrink-0 animate-spin text-[#0c78b8]" />
+        <span className="text-[0.85cqw] font-semibold text-slate-600">
+          Creating work order…
+        </span>
+        <span className="ml-[3%] h-[26%] w-[14%] animate-pulse rounded bg-slate-200" />
+        <span className="h-[26%] w-[10%] animate-pulse rounded bg-slate-200" />
+        <span className="h-[26%] w-[8%] animate-pulse rounded bg-slate-200" />
+      </motion.div>
+
+      {/* the new work order, top of the list */}
+      <motion.div
+        className={rowBase}
+        style={{ ...rowBox, top: wy(WO_Y0) }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: step >= 15 ? 1 : 0 }}
+        transition={{ duration: step >= 15 ? 0.5 : 0 }}
+      >
+        <OrderCells o={ORDERS[0]} />
+        <motion.span
+          className="absolute inset-0 bg-emerald-400/25"
+          initial={{ opacity: 0 }}
+          animate={step >= 15 ? { opacity: [0, 1, 0.4, 1, 0] } : { opacity: 0 }}
+          transition={{ duration: step >= 15 ? 2 : 0 }}
+        />
+      </motion.div>
+
+      {/* actions dropdown for the 2nd order; opens slowly from the top */}
+      <motion.div
+        className="absolute z-10 rounded-xl border border-slate-200 bg-white shadow-[0_8px_24px_-6px_rgba(15,23,42,0.25)]"
+        style={{
+          left: wx(1716),
+          top: wy(462),
+          width: wx(176),
+          height: wy(132),
+        }}
+        initial={{ clipPath: "inset(0% 0% 100% 0%)" }}
+        animate={{
+          clipPath:
+            step >= 17 ? "inset(-15% -10% -25% -10%)" : "inset(0% 0% 100% 0%)",
+        }}
+        transition={{ duration: step >= 17 ? 1.1 : 0, ease }}
+      >
+        {[
+          {
+            icon: <Printer className="h-[55%] w-[55%]" />,
+            label: "Print Work Order",
+          },
+          {
+            icon: <Barcode className="h-[55%] w-[55%]" />,
+            label: "Print Scan Code",
+          },
+          {
+            icon: <GitBranch className="h-[55%] w-[55%]" />,
+            label: "View stages",
+          },
+        ].map((it) => (
+          <div
+            key={it.label}
+            className="flex h-1/3 items-center gap-[7%] px-[7%]"
+          >
+            <span className="flex h-[64%] w-[16%] items-center justify-center rounded-md border border-cyan-200 bg-cyan-50 text-cyan-700">
+              {it.icon}
+            </span>
+            <span className="whitespace-nowrap text-[0.78cqw] font-medium text-slate-800">
+              {it.label}
+            </span>
+          </div>
+        ))}
+      </motion.div>
+    </>
+  );
+}
 
 export default function AiOrderPlacementDemo() {
   const ref = useRef<HTMLDivElement>(null);
@@ -780,7 +1055,7 @@ export default function AiOrderPlacementDemo() {
               {/* zoom layer: zooms toward the kebab dropdown so its items are easy to read */}
               <motion.div
                 className="absolute inset-0"
-                style={{ transformOrigin: "100% 36%" }}
+                style={{ transformOrigin: "100% 44%" }}
                 initial={{ scale: 1 }}
                 animate={{ scale: step >= 19 ? 1 : step >= 17 ? ZOOM : 1 }}
                 transition={{
@@ -789,67 +1064,16 @@ export default function AiOrderPlacementDemo() {
                 }}
               >
                 <Image
-                  src="/images/ai-order/work-orders.png"
+                  src="/images/ai-order/work-orders-full.png"
                   alt="Work Orders screen listing the work orders"
                   width={1919}
                   height={945}
-                  sizes="(min-width: 768px) 1020px, 100vw"
+                  sizes="(min-width: 768px) 1200px, 100vw"
+                  quality={95}
                   className="block h-full w-full"
                 />
 
-                {/* hides the dropdown that is baked into the screenshot; it lifts away slowly on the kebab click */}
-                <motion.div
-                  aria-hidden
-                  className="absolute bg-white"
-                  style={{
-                    left: "88.4%",
-                    top: "43.5%",
-                    width: "11.6%",
-                    height: "14.2%",
-                    transformOrigin: "bottom",
-                  }}
-                  initial={{ scaleY: 1 }}
-                  animate={{ scaleY: step >= 17 ? 0 : 1 }}
-                  transition={{ duration: step >= 17 ? 1.1 : 0, ease }}
-                />
-
-                {/* the work order row flashes once created */}
-                <motion.span
-                  className="absolute left-0 right-0 bg-emerald-400/25"
-                  style={{
-                    top: "36.8%",
-                    height: "6.4%",
-                    left: "13.6%",
-                    right: "0.4%",
-                  }}
-                  initial={{ opacity: 0 }}
-                  animate={
-                    step >= 15 ? { opacity: [0, 1, 0.4, 1, 0] } : { opacity: 0 }
-                  }
-                  transition={{ duration: step >= 15 ? 2 : 0 }}
-                />
-
-                {/* loader: the list is loading while the work order is created */}
-                <motion.div
-                  className="absolute flex flex-col items-center justify-center gap-[1cqw] bg-white/90 backdrop-blur-[2px]"
-                  style={{
-                    left: "13.6%",
-                    top: "32.4%",
-                    width: "86.2%",
-                    height: "60.5%",
-                  }}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: step >= 14 && step < 15 ? 1 : 0 }}
-                  transition={{
-                    duration: step >= 15 ? 0.6 : 0.5,
-                    delay: step === 14 ? 0.5 : 0,
-                  }}
-                >
-                  <Loader2 className="h-[3.6cqw] w-[3.6cqw] animate-spin text-[#0c78b8]" />
-                  <span className="text-[1.5cqw] font-semibold text-slate-700">
-                    Creating work order…
-                  </span>
-                </motion.div>
+                <OrdersTable step={step} />
 
                 {/* 16 — arrow rises from the bottom, glides to the kebab icon and clicks it */}
                 {step >= 16 && step < 18 && (
@@ -864,8 +1088,8 @@ export default function AiOrderPlacementDemo() {
                         scale: 1,
                       }}
                       animate={{
-                        left: "97.5%",
-                        top: "39.5%",
+                        left: "97.7%",
+                        top: "46.6%",
                         opacity: 1,
                         scale: [1, 1, 0.85, 1],
                       }}
@@ -885,8 +1109,8 @@ export default function AiOrderPlacementDemo() {
                     <motion.span
                       className="pointer-events-none absolute z-10 rounded-md border-2 border-slate-500"
                       style={{
-                        left: "96.9%",
-                        top: "38.2%",
+                        left: "97%",
+                        top: "44.9%",
                         width: "1.7%",
                         height: "3.3%",
                       }}
@@ -909,9 +1133,9 @@ export default function AiOrderPlacementDemo() {
                       className="pointer-events-none absolute z-10 rounded-md bg-sky-200/70 ring-1 ring-sky-400/60"
                       style={{
                         left: "90.2%",
-                        top: "47%",
+                        top: "53.8%",
                         width: "7.8%",
-                        height: "4%",
+                        height: "4.2%",
                       }}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: [0, 1, 1] }}
@@ -921,14 +1145,14 @@ export default function AiOrderPlacementDemo() {
                       viewBox="0 0 100 100"
                       className="pointer-events-none absolute z-20 -ml-[2px] -mt-[2px] h-5 w-5 drop-shadow-md md:h-6 md:w-6"
                       initial={{
-                        left: "97.5%",
-                        top: "39.5%",
+                        left: "97.7%",
+                        top: "46.6%",
                         opacity: 1,
                         scale: 1,
                       }}
                       animate={{
                         left: "94%",
-                        top: "49.2%",
+                        top: "56%",
                         scale: [1, 1, 0.85, 1],
                       }}
                       transition={{
@@ -975,7 +1199,7 @@ export default function AiOrderPlacementDemo() {
               }}
             >
               <Image
-                src="/images/ai-order/scan-code-label.png"
+                src="/images/ai-order/scan-code-label-v2.png"
                 alt="Scan-code label with barcode for the work order piece"
                 width={1692}
                 height={930}
