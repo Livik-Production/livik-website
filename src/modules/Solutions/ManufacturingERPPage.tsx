@@ -89,9 +89,12 @@ export default function ManufacturingERPPage() {
       <section className="px-4 py-10 md:px-8 md:py-10">
         <div className="container-custom mx-auto max-w-4xl text-center">
           <ScrollReveal>
-            <h1 className="mt-6 text-3xl font-bold leading-tight text-[#004475] md:text-5xl">
-              Manage Your Manufacturing Operations in One Place
+            <h1 className="mt-6 text-4xl font-extrabold leading-tight text-[#33a8d9] md:text-6xl">
+              Manufacturing ERP Software
             </h1>
+            <h2 className="mt-4 text-2xl font-bold leading-tight text-[#004475] md:text-4xl">
+              Manage Your Manufacturing Operations in One Place
+            </h2>
             <p className="mt-8 text-xl text-gray-600">
               Managing a manufacturing business involves coordinating purchasing, inventory, production, quality, sales
               and accounts. When these activities are handled through separate systems or spreadsheets, it becomes
