@@ -77,9 +77,12 @@ export default function CustomERPPage() {
       <section className="px-4 py-10 md:px-8 md:py-10">
         <div className="container-custom mx-auto max-w-4xl text-center">
           <ScrollReveal>
-            <h1 className="mt-6 text-3xl font-bold leading-tight text-[#004475] md:text-5xl">
-              ERP Software Designed Around Your Business
+            <h1 className="mt-6 text-4xl font-extrabold leading-tight text-[#33a8d9] md:text-6xl">
+              Custom ERP Solutions
             </h1>
+            <h2 className="mt-4 text-2xl font-bold leading-tight text-[#004475] md:text-4xl">
+              ERP Software Designed Around Your Business
+            </h2>
             <p className="mt-8 text-xl text-gray-600">
               Every business has its own processes, workflows and operational requirements. Standard ERP software may
               not always fit the way your business operates.
@@ -134,13 +137,13 @@ export default function CustomERPPage() {
           </ScrollReveal>
           <StaggerContainer>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-              {services.map((s) => (
+              {services.map((s, i) => (
                 <StaggerItem key={s.title}>
                   <div className="group flex h-full flex-col rounded-2xl border border-gray-300 bg-white p-6 shadow-[0_4px_20px_rgba(0,68,117,0.06)] transition-all duration-[450ms] hover:-translate-y-[10px] hover:border-[#1d8fe1]">
                     <div className="wc-icon-tile mb-6">
                       <s.icon size={26} />
                     </div>
-                    <h3 className="mb-4 text-xl font-bold text-[#004475]">{s.title}</h3>
+                    <h3 className="mb-4 text-xl font-bold text-[#004475]">{i + 1}. {s.title}</h3>
                     <p className="text-sm font-medium leading-relaxed text-[#506478]">{s.desc}</p>
                   </div>
                 </StaggerItem>
