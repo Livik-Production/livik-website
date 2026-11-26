@@ -6,8 +6,9 @@ export const metadata = {
   description: "Join Livik's growing team. Explore our open positions and build the future with us.",
 };
 
-// Next.js config to ensure dynamic rendering if we want real-time job updates
-export const revalidate = 60; // revalidate every 60 seconds
+// Render on each request so the build doesn't need database access
+// and job listings are always up to date.
+export const dynamic = "force-dynamic";
 
 export default async function Page() {
   const jobOpenings = await prisma.jobOpening.findMany({
